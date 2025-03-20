@@ -28,8 +28,14 @@ Para esta prueba técnica, se evaluarán los siguientes aspectos y criterios:
 
 4. **Manejo de JS/TS:**  
    - Buenas prácticas en JavaScript o TypeScript.  
-   - Uso adecuado de directivas y manejo del framework seleccionado.  
-   - Tipado estricto en caso de trabajar con TypeScript (evitando `any`).
+   - Uso adecuado de directivas y manejo de hooks.  
+   - Implementación de hooks personalizados (_custom hooks_).  
+   - **Optimización del Rendimiento:** Uso de técnicas como `React.memo`, `useMemo` y `useCallback` para evitar renderizados innecesarios y mejorar la eficiencia.  
+   - **Gestión del Estado:** Implementación eficiente del estado local o global mediante herramientas como Context API, Redux, Zustand u otras soluciones de manejo de estado.  
+   - **Manejo de Errores:** Gestión adecuada de errores en componentes y peticiones asíncronas, proporcionando mensajes de retroalimentación claros para los usuarios.  
+   - **Módulos y Componentización:** Creación de módulos/componentes reutilizables con una clara separación de responsabilidades en el código.  
+   - **Ciclo de Vida:** Uso correcto de hooks como `useEffect`, gestionando dependencias de manera eficiente y evitando errores comunes como bucles infinitos.  
+   - **Acceso y Seguridad:** Implementación de controles de acceso en rutas o datos sensibles para reforzar la seguridad en el frontend.  
 
 5. **Métodos Fetch:**  
    - Manejo adecuado de peticiones HTTP (`POST`, `GET`, `PUT`, `DELETE`) con APIs externas.
@@ -126,8 +132,7 @@ Una vez completada la landing page, se diseñará y maquetará un **BackOffice**
        - Una lista con sus últimos diagnósticos.
 
 ##### **Valoraciones Adicionales:**
-1. **Rutas Protegidas:** Asegurar que las rutas estén protegidas. Si se intenta acceder sin autorización, redirigir a la ruta principal ("/").  
-2. **Flujo de Navegación:** Garantizar un acceso intuitivo y seguro según el rol del usuario.  
+1. **Flujo de Navegación:** Garantizar un acceso intuitivo y seguro según el rol del usuario.  
 
 ---
 
