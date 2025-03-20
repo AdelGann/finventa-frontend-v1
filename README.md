@@ -1,4 +1,4 @@
-### Principal 
+## Principal 
 
 **Framework:**
 En esta prueba técnica puedes trabajar con cualquier framework/librería (React, Vue, Angular, Svelte, Astro, Next, Nuxt, etc.) de tu preferencia,
@@ -10,7 +10,7 @@ Tienes completa libertad de elegir que motor de estilado usar, que librería o c
 **TypeScript:**
 Si decides trabajar con TypeScript, se evaluaran las practicas que uses. nada de any's
 
-### Requerimientos
+## Requerimientos
 ---
 Para esta prueba técnica, se van a evaluar diferentes aspectos y criterios. En la prueba tomaré las siguientes consideraciones:
 
@@ -32,13 +32,13 @@ Se evaluará además al menos UN caso de test unitario, usando la librería de t
 Se evaluará además la creatividad de la página, mientras más creativo mejor!!
 
 
-### Contexto del proyecto
+## Contexto del proyecto
 ---
 Acabas de recibir una llamada...
 
 Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
 
-#### Tu tarea principal
+### Tu tarea principal
 
 **Landing Page:**
 
@@ -72,7 +72,7 @@ Esto es solo una idea, si no deseas realizar esta prueba, por no sentirte a gust
 
 El contexto debes proponerlo y tendrás media hora (30 min) para pensarlo, y sí en media hora no logras pensar en uno, lo mejor será que sigas con el propuesto.
 
-### Etapas
+## Etapas
 
 El desarrollo de esta aplicación será de máximo tres (3) etapas:
 
@@ -81,7 +81,7 @@ El desarrollo de esta aplicación será de máximo tres (3) etapas:
 3) Y finalmente la tercera, donde se llevará a cabo una prueba teórica donde se te preguntarán temas básicos sobre JavaScript/TypeScript, y el Framework que utilices. 
 
 
-### Evaluación
+## Evaluación
 
 Se te estará evaluando los distintos aspectos de la pagina en general, y las preguntas prácticas, el sistema será evaluado sobre 20 puntos, y las preguntas prácticas sobre 10 puntos, con un total de 30 puntos. Para pasar esta evaluación deberás contar con el 70% de tu calificación para pasar.
 
