@@ -93,6 +93,7 @@ Sin embargo, debe cumplir con los siguientes lineamientos:
     4) Vistas que permitan la visualización, actualización, creación y, en caso necesario, eliminación de datos. 
 
 Tendrás **30 minutos** para pensar en un nuevo contexto. Si no logras definirlo en ese tiempo, se continuará con el contexto propuesto.
+
 ---
 ### Etapas
   
