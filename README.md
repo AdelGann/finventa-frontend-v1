@@ -1,10 +1,8 @@
 ### Principal
 
-**Framework:**  
-En esta prueba técnica, Lo primordial será que se desarrolle todo en React, o NextJS También puedes optar por trabajar con **JavaScript** o **TypeScript**, según tu criterio.
+**Framework:** En esta prueba técnica, Lo primordial será que se desarrolle todo en React, o NextJS También puedes optar por trabajar con **JavaScript** o **TypeScript**, según tu criterio.
 
-**Estilos:**  
-Tienes completa libertad para elegir el motor de estilado, la librería o los componentes que desees utilizar.
+**Estilos:** Tienes completa libertad para elegir el motor de estilado, la librería o los componentes que desees utilizar.
 
 ---
 ### Requerimientos
