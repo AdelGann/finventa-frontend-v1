@@ -65,8 +65,11 @@ Una vez desarrollada la landing page, se debe diseñar y maquetar una estructura
 
 1. **Login Simple:** Permite el acceso controlado a las funcionalidades del BackOffice.
 2. **Estructuración por Roles:** Dividir las vistas según los siguientes roles:
+
    - **Profesional:** Acceso a una vista con datos hardcodeados de pacientes y sus estados de trasplantes. Formulario para agregar nuevos pacientes. Vista **opcional** para realizar análisis de datos de los pacientes.
+
    - **Paciente:** Acceso a una vista donde podrá visualizar: Su estado actual. Notificaciones relevantes. Su posición en la lista de trasplantes. Una lista con sus últimos diagnósticos.  
+
 ##### **Valoraciones Adicionales**
 
 1. **Rutas Protegidas:** Las rutas deberán estar protegidas. En caso de intentar acceder a una ruta restringida sin la debida autorización, se redirigirá automáticamente a la ruta principal ("/") o a la ruta definida como predeterminada.
