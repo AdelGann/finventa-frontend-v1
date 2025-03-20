@@ -1,93 +1,88 @@
-# Prueba Técnica Frontend
+### Principal 
+
+**Framework:**
+En esta prueba técnica puedes trabajar con cualquier framework/librería (React, Vue, Angular, Svelte, Astro, Next, Nuxt, etc.) de tu preferencia,
+y puedes trabajara con JavaScript o TypeScript, eso es a tu criterio.
+
+**Estilos:**
+Tienes completa libertad de elegir que motor de estilado usar, que librería o cualquier componente que desees.
+
+**TypeScript:**
+Si decides trabajar con TypeScript, se evaluaran las practicas que uses. nada de any's
+
+### Requerimientos
+---
+Para esta prueba técnica, se van a evaluar diferentes aspectos y criterios. En la prueba tomaré las siguientes consideraciones:
+
+1) Buenas practicas HTML (Semántica, SEO, Carga de scripts y enlaces HTML)
+2) Habilidades CSS (Uso de Flex / Grid, CSS especificidad, CSS seudo clases, Animaciones)
+3) Framework CSS (TailwindCSS, SCSS, CSS modules, Bootstrap)
+4) Manejo de JS / TS (Buenas practicas, directivas, manejo del framework utilizado, tipado en caso de usar TypeScript)
+5) Fetch Methods (Manejo de peticiones post, get, put, delete, con API's externas)
+
+Adicional a todo eso, y como consideraciones, también se evaluarán los siguientes casos, no son obligatorios, pero suman.
+
+**Documentación:** 
+Se evaluará la documentación del código y el contexto general del proyecto. Recuerda que no serás el único que pase por ese código. Es importante dejar una descripción clara de lo que hiciste para los futuros desarrolladores.
+
+**Testing**:
+Se evaluará además al menos UN caso de test unitario, usando la librería de testing que desees, y el más importante que consideres.
+
+**Creatividad**:
+Se evaluará además la creatividad de la página, mientras más creativo mejor!!
 
 
+### Contexto del proyecto
+---
+Acabas de recibir una llamada...
 
-## Getting started
+Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+#### Tu tarea principal
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+**Landing Page:**
 
-## Add your files
+Debes desarrollar una landing page, para el hospital, donde su principal objetivo sea atraer a posibles donantes y a personas que necesiten un trasplante. 
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+En esta, debe tener lo básico una landing, su vista principal, la visión de la página, estadísticas de cuantas personas llevan atendidas, Historia y ubicación del hospital, y finalmente el formulario de contáctenos, en el que pueden ser donantes o personas que necesiten un donante.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/AdelGann/prueba-tecnica-frontend.git
-git branch -M main
-git push -uf origin main
-```
+El formulario de donante debe tener, datos básicos de ubicación (Nombres, Apellidos, Cédula de Identidad, Ubicación, Teléfono, Email). Datos de sangre (Tipo de sangre), Patologías (Sí las hay) y el tipo de donación que va a realizar
 
-## Integrate with your tools
+El formulario de receptor debe, de igual forma, tener datos básicos de ubicación, datos de sangre, patologías, y el tipo de donación que necesita.
 
-- [ ] [Set up project integrations](https://gitlab.com/AdelGann/prueba-tecnica-frontend/-/settings/integrations)
+Los formularios deben tener validación y debe dar error si el formulario se intenta enviar vacío o con datos faltantes.
 
-## Collaborate with your team
+Como único dato no obligatorio, es el campo de patologías.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+**BackOffice**
 
-## Test and Deploy
+Una vez desarrollado la landing page, debes maquetar una estructura de BackOffice, en las que deberás, como requisito fundamental, manejar un simple login, que de paso a una estructuración de paginas divididas por roles, (Profesional, Paciente). 
 
-Use the built-in continuous integration in GitLab.
+El profesional, como único requisito debe acceder a una vista donde aparecerán datos hardcodeados de Pacientes y sus estados de trasplantes, un pequeño formulario para agregar más pacientes, y adicional, pero no obligatorio, una vista para análisis de datos de los pacientes.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+El Paciente, tendrá acceso a una única vista en la que verá su estado, notificaciones, posición en la lista de trasplantes y una lista de sus últimos diagnósticos
 
-***
+Como valoraciones adicionales, las rutas deberán estar protegidas y redireccionar a la ruta "/" (o a la ruta que se defina como principal) en caso se intente acceder a dicha ruta protegida sin tener acceso.
 
-# Editing this README
+**Aclaratoria:**
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Esto es solo una idea, si no deseas realizar esta prueba, por no sentirte a gusto con este contexto, siéntete libre de escoger otro contexto, el de tu preferencia.
 
-## Suggestions for a good README
+**PERO**, tiene que seguir la misma idea del contexto, una landing que de pie a un BackOffice, el BackOffice con su login, distinción de rangos, rutas protegidas, y vistas de visualización de datos, actualización, creación y posibles eliminaciones.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+El contexto debes proponerlo y tendrás media hora (30 min) para pensarlo, y sí en media hora no logras pensar en uno, lo mejor será que sigas con el propuesto.
 
-## Name
-Choose a self-explaining name for your project.
+### Etapas
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+El desarrollo de esta aplicación será de máximo tres (3) etapas:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+1) La primera, deberás desarrollar un landing, donde máximo tendrás un (1) día para completarlo.
+2) La segunda, el BackOffice donde contarás con un (1) día de igual forma, pero con posibilidad de extenderlo a dos.
+3) Y finalmente la tercera, donde se llevará a cabo una prueba teórica donde se te preguntarán temas básicos sobre JavaScript/TypeScript, y el Framework que utilices. 
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Evaluación
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Se te estará evaluando los distintos aspectos de la pagina en general, y las preguntas prácticas, el sistema será evaluado sobre 20 puntos, y las preguntas prácticas sobre 10 puntos, con un total de 30 puntos. Para pasar esta evaluación deberás contar con el 70% de tu calificación para pasar.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+¡¡¡ MUCHOS ÉXITOS !!!!
