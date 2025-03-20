@@ -11,7 +11,7 @@ Tienes completa libertad de elegir que motor de estilado usar, que librería o c
 Si decides trabajar con TypeScript, se evaluaran las practicas que uses. nada de any's
 
 ## Requerimientos
----
+
 Para esta prueba técnica, se van a evaluar diferentes aspectos y criterios. En la prueba tomaré las siguientes consideraciones:
 
 1) Buenas practicas HTML (Semántica, SEO, Carga de scripts y enlaces HTML)
@@ -33,7 +33,7 @@ Se evaluará además la creatividad de la página, mientras más creativo mejor!
 
 
 ## Contexto del proyecto
----
+
 Acabas de recibir una llamada...
 
 Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
@@ -41,6 +41,7 @@ Te contactan para desarrollar un BackOffice para administración y análisis de 
 ### Tu tarea principal
 
 **Landing Page:**
+---
 
 Debes desarrollar una landing page, para el hospital, donde su principal objetivo sea atraer a posibles donantes y a personas que necesiten un trasplante. 
 
@@ -55,6 +56,7 @@ Los formularios deben tener validación y debe dar error si el formulario se int
 Como único dato no obligatorio, es el campo de patologías.
 
 **BackOffice**
+---
 
 Una vez desarrollado la landing page, debes maquetar una estructura de BackOffice, en las que deberás, como requisito fundamental, manejar un simple login, que de paso a una estructuración de paginas divididas por roles, (Profesional, Paciente). 
 
@@ -65,7 +67,7 @@ El Paciente, tendrá acceso a una única vista en la que verá su estado, notifi
 Como valoraciones adicionales, las rutas deberán estar protegidas y redireccionar a la ruta "/" (o a la ruta que se defina como principal) en caso se intente acceder a dicha ruta protegida sin tener acceso.
 
 **Aclaratoria:**
-
+---
 Esto es solo una idea, si no deseas realizar esta prueba, por no sentirte a gusto con este contexto, siéntete libre de escoger otro contexto, el de tu preferencia.
 
 **PERO**, tiene que seguir la misma idea del contexto, una landing que de pie a un BackOffice, el BackOffice con su login, distinción de rangos, rutas protegidas, y vistas de visualización de datos, actualización, creación y posibles eliminaciones.
