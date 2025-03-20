@@ -36,7 +36,7 @@ Se evaluará además la creatividad de la página, mientras más creativo mejor!
 
 Acabas de recibir una llamada...
 
-Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
+Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital. En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
 
 ### Tu tarea principal
 
