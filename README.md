@@ -79,10 +79,14 @@ Esta es una propuesta inicial. Si no deseas desarrollar este proyecto debido al 
 
 Sin embargo, debe cumplir con los siguientes lineamientos:
 - Incluir una **landing page** que sirva como punto de inicio para un BackOffice.  
-- El BackOffice debe contar con:  
+- El BackOffice debe contar con:
+
  1) Un sistema de login.  
+
  2) Distinción de roles.  
+
  3) Rutas protegidas.  
+
  4) Vistas que permitan la visualización, actualización, creación y, en caso necesario, eliminación de datos.  
 Tendrás **30 minutos** para pensar en un nuevo contexto. Si no logras definirlo en ese tiempo, se continuará con el contexto propuesto.
 ---
@@ -100,7 +104,8 @@ Al finalizar cada etapa, deberás realizar un **Pull Request** con todos los cam
 ---
 Se evaluarán los diferentes aspectos de la página en general y las preguntas prácticas. La calificación total estará dividida de la siguiente manera:
 
-**Sistema:** Evaluado sobre un total de 20 puntos.  
+**Sistema:** Evaluado sobre un total de 20 puntos.
+
 **Preguntas prácticas:** Evaluadas sobre un total de 10 puntos.  
 
 El puntaje máximo será de 30 puntos, y para aprobar la evaluación se deberá alcanzar al menos el **70%** de la calificación total.
