@@ -1,90 +1,143 @@
-## Principal 
+### Principal
 
-**Framework:**
-En esta prueba técnica puedes trabajar con cualquier framework/librería (React, Vue, Angular, Svelte, Astro, Next, Nuxt, etc.) de tu preferencia,
-y puedes trabajara con JavaScript o TypeScript, eso es a tu criterio.
+**Framework:**  
+En esta prueba técnica, puedes trabajar con el framework o librería de tu preferencia, como React, Vue, Angular, Svelte, Astro, Next, Nuxt, entre otros. También puedes optar por trabajar con **JavaScript** o **TypeScript**, según tu criterio.
 
-**Estilos:**
-Tienes completa libertad de elegir que motor de estilado usar, que librería o cualquier componente que desees.
+**Estilos:**  
+Tienes completa libertad para elegir el motor de estilado, la librería o los componentes que desees utilizar.
 
-**TypeScript:**
-Si decides trabajar con TypeScript, se evaluaran las practicas que uses. nada de any's
+**TypeScript:**  
+Si decides trabajar con **TypeScript**, se evaluará el uso de buenas prácticas, y es fundamental evitar el uso de `any`.
 
-## Requerimientos
+---
+### Requerimientos
+Para esta prueba técnica, se evaluarán diferentes aspectos y criterios. Los puntos clave a considerar incluyen:
+1. **Buenas prácticas en HTML:**  
+   - Uso de semántica adecuada.  
+   - SEO básico.  
+   - Correcta carga de scripts y enlaces HTML.
+2. **Habilidades en CSS:**  
+   - Uso eficaz de Flexbox y/o Grid.  
+   - Manejo de especificidad en CSS.  
+   - Uso de pseudo-clases.  
+   - Implementación de animaciones.
+3. **Framework CSS:**  
+   - Aplicación de herramientas como TailwindCSS, SCSS, CSS Modules o Bootstrap.
+4. **Manejo de JS/TS:**  
+   - Buenas prácticas en JavaScript o TypeScript.  
+   - Uso adecuado de directivas y manejo del framework seleccionado.  
+   - Tipado adecuado (en caso de trabajar con TypeScript).
+1. **Métodos Fetch:**  
+   - Manejo adecuado de peticiones HTTP (`POST`, `GET`, `PUT`, `DELETE`) con APIs externas.
+---
+### Consideraciones Adicionales 
+Tener esto en cuenta, no son obligatorias pero saberlas, y aplicarlas suman puntos
 
-Para esta prueba técnica, se van a evaluar diferentes aspectos y criterios. En la prueba tomaré las siguientes consideraciones:
+1. **Documentación:**  
+   - Se evaluará la claridad y calidad de la documentación del código y el contexto general del proyecto.  
+   - Recuerda que tu código podría ser leído por otros desarrolladores en el futuro. Una descripción detallada será de gran valor.
+1. **Testing:**  
+   - Se evaluará al menos un caso de test unitario.  
+   - Puedes utilizar la librería de testing que prefieras, centrándote en el caso más relevante.
+1. **Creatividad:**  
+   - Se valorará la creatividad en el diseño y funcionalidad de la página. Cuanto más innovador, ¡mejor!
+  
+---
+### Contexto del proyecto
 
-1) Buenas practicas HTML (Semántica, SEO, Carga de scripts y enlaces HTML)
-2) Habilidades CSS (Uso de Flex / Grid, CSS especificidad, CSS seudo clases, Animaciones)
-3) Framework CSS (TailwindCSS, SCSS, CSS modules, Bootstrap)
-4) Manejo de JS / TS (Buenas practicas, directivas, manejo del framework utilizado, tipado en caso de usar TypeScript)
-5) Fetch Methods (Manejo de peticiones post, get, put, delete, con API's externas)
-
-Adicional a todo eso, y como consideraciones, también se evaluarán los siguientes casos, no son obligatorios, pero suman.
-
-**Documentación:** 
-Se evaluará la documentación del código y el contexto general del proyecto. Recuerda que no serás el único que pase por ese código. Es importante dejar una descripción clara de lo que hiciste para los futuros desarrolladores.
-
-**Testing**:
-Se evaluará además al menos UN caso de test unitario, usando la librería de testing que desees, y el más importante que consideres.
-
-**Creatividad**:
-Se evaluará además la creatividad de la página, mientras más creativo mejor!!
-
-
-## Contexto del proyecto
-
+---
 Acabas de recibir una llamada...
 
-Te contactan para desarrollar un BackOffice para administración y análisis de datos de laboratorio para un hospital. En general, el proyecto es para llevar una mejor administración para pacientes en listas de espera de trasplantes de órganos, para mejorar y automatizar su flujo y garantizar que todos los pacientes puedan obtener su trasplante de manera correcta y sin adulteraciones, ya que el antiguo sistema médico era propenso a perdidas de datos, y constantes fallas técnicas
+Te contactan para desarrollar un BackOffice para la administración y análisis de datos de laboratorio de un hospital. En general, el proyecto busca una mejor gestión de los pacientes en las listas de espera para trasplantes de órganos, con el objetivo de mejorar y automatizar los procesos, garantizando que todos los pacientes puedan recibir su trasplante de manera adecuada y sin irregularidades. Esto es especialmente importante debido a que el antiguo sistema médico era propenso a la pérdida de datos y a fallas técnicas constantes.
+#### Tu tarea principal
+##### **Landing Page:**
 
-### Tu tarea principal
-
-**Landing Page:**
+Se debe desarrollar una **landing page** para el hospital, cuyo principal objetivo sea captar posibles donantes y personas que necesiten un trasplante.
+##### Elementos principales de la landing page:
+- **Vista principal:** Atractiva y con un diseño que transmita el propósito de la página.
+- **Visión:** Explicación de los objetivos y el compromiso del hospital con la salud y la vida.
+- **Estadísticas:** Datos claros sobre la cantidad de personas atendidas y los logros alcanzados.
+- **Historia y ubicación:** Información relevante sobre la trayectoria del hospital y cómo llegar a él.
+- **Formulario de contacto:** Permite registrar tanto a donantes como a receptores.
 ---
+##### Especificaciones del formulario
 
-Debes desarrollar una landing page, para el hospital, donde su principal objetivo sea atraer a posibles donantes y a personas que necesiten un trasplante. 
+##### Formulario de Donante
+Debe recopilar los siguientes datos:
+- **Información básica:** Nombres, apellidos, cédula de identidad, ubicación, teléfono y correo electrónico.
+- **Datos médicos:** Tipo de sangre, patologías (si las hay) y tipo de donación a realizar.
+##### Formulario de Receptor
+Debe incluir:
+- **Información básica:** Nombres, apellidos, cédula de identidad, ubicación, teléfono y correo electrónico.
+- **Datos médicos:** Tipo de sangre, patologías (si las hay) y tipo de donación que necesita.
+**Nota:** El campo de patologías es el único dato no obligatorio.
 
-En esta, debe tener lo básico una landing, su vista principal, la visión de la página, estadísticas de cuantas personas llevan atendidas, Historia y ubicación del hospital, y finalmente el formulario de contáctenos, en el que pueden ser donantes o personas que necesiten un donante.
-
-El formulario de donante debe tener, datos básicos de ubicación (Nombres, Apellidos, Cédula de Identidad, Ubicación, Teléfono, Email). Datos de sangre (Tipo de sangre), Patologías (Sí las hay) y el tipo de donación que va a realizar
-
-El formulario de receptor debe, de igual forma, tener datos básicos de ubicación, datos de sangre, patologías, y el tipo de donación que necesita.
-
-Los formularios deben tener validación y debe dar error si el formulario se intenta enviar vacío o con datos faltantes.
-
-Como único dato no obligatorio, es el campo de patologías.
-
-**BackOffice**
 ---
-
-Una vez desarrollado la landing page, debes maquetar una estructura de BackOffice, en las que deberás, como requisito fundamental, manejar un simple login, que de paso a una estructuración de paginas divididas por roles, (Profesional, Paciente). 
-
-El profesional, como único requisito debe acceder a una vista donde aparecerán datos hardcodeados de Pacientes y sus estados de trasplantes, un pequeño formulario para agregar más pacientes, y adicional, pero no obligatorio, una vista para análisis de datos de los pacientes.
-
-El Paciente, tendrá acceso a una única vista en la que verá su estado, notificaciones, posición en la lista de trasplantes y una lista de sus últimos diagnósticos
-
-Como valoraciones adicionales, las rutas deberán estar protegidas y redireccionar a la ruta "/" (o a la ruta que se defina como principal) en caso se intente acceder a dicha ruta protegida sin tener acceso.
-
-**Aclaratoria:**
+##### Validaciones
+Ambos formularios deben incluir validaciones para garantizar:
+1. Que no se envíen vacíos.
+2. Que no haya datos faltantes.
+3. Mostrar mensajes de error claros en caso de datos incorrectos o incompletos.
 ---
-Esto es solo una idea, si no deseas realizar esta prueba, por no sentirte a gusto con este contexto, siéntete libre de escoger otro contexto, el de tu preferencia.
+##### **BackOffice**
 
-**PERO**, tiene que seguir la misma idea del contexto, una landing que de pie a un BackOffice, el BackOffice con su login, distinción de rangos, rutas protegidas, y vistas de visualización de datos, actualización, creación y posibles eliminaciones.
+Una vez desarrollada la landing page, se debe diseñar y maquetar una estructura de BackOffice con las siguientes características:
+##### **Requisitos Fundamentales**
 
-El contexto debes proponerlo y tendrás media hora (30 min) para pensarlo, y sí en media hora no logras pensar en uno, lo mejor será que sigas con el propuesto.
+1. **Login Simple:** Permite el acceso controlado a las funcionalidades del BackOffice.
+2. **Estructuración por Roles:** Dividir las vistas según los siguientes roles:
+   - **Profesional:**  
+       - Acceso a una vista con datos hardcodeados de pacientes y sus estados de trasplantes.
+       - Formulario para agregar nuevos pacientes.  
+       - **(Opcional):** Vista para realizar análisis de datos de los pacientes.
+   - **Paciente:**  
+       - Acceso a una vista donde podrá visualizar:  
+       - Su estado actual.  
+       - Notificaciones relevantes.  
+       - Su posición en la lista de trasplantes.  
+       - Una lista con sus últimos diagnósticos.  
+##### **Valoraciones Adicionales**
 
-## Etapas
+1. **Rutas Protegidas:** Las rutas deberán estar protegidas. En caso de intentar acceder a una ruta restringida sin la debida autorización, se redirigirá automáticamente a la ruta principal ("/") o a la ruta definida como predeterminada.
+2. **Flujo de Navegación:** Garantizar un acceso intuitivo y seguro para los diferentes roles.
+  
+---
+## **Aclaratoria:**
 
-El desarrollo de esta aplicación será de máximo tres (3) etapas:
+Esta es una propuesta inicial. Si no deseas desarrollar este proyecto debido al contexto planteado, puedes proponer otro tema que se ajuste más a tus preferencias.
 
-1) La primera, deberás desarrollar un landing, donde máximo tendrás un (1) día para completarlo.
-2) La segunda, el BackOffice donde contarás con un (1) día de igual forma, pero con posibilidad de extenderlo a dos.
-3) Y finalmente la tercera, donde se llevará a cabo una prueba teórica donde se te preguntarán temas básicos sobre JavaScript/TypeScript, y el Framework que utilices. 
+Sin embargo, debe cumplir con los siguientes lineamientos:
+- Incluir una **landing page** que sirva como punto de inicio para un BackOffice.  
+- El BackOffice debe contar con:  
+  - Un sistema de login.  
+  - Distinción de roles.  
+  - Rutas protegidas.  
+  - Vistas que permitan la visualización, actualización, creación y, en caso necesario, eliminación de datos.  
+  - 
+Tendrás **30 minutos** para pensar en un nuevo contexto. Si no logras definirlo en ese tiempo, se continuará con el contexto propuesto.
+---
+### Etapas
+  
+El desarrollo de esta aplicación se llevará a cabo en un máximo de tres (3) etapas:
+1. **Primera Etapa:**  
+   - Desarrollo de la landing page.  
+   - Plazo máximo: **un (1) día** para completarla.
+2. **Segunda Etapa:**  
+   - Implementación del BackOffice.  
+   - Plazo inicial: **un (1) día**, con posibilidad de extenderlo hasta **dos (2) días**, si es necesario.
+3. **Tercera Etapa:**  
+   - Realización de una prueba teórica.  
+   - Durante esta prueba, se evaluarán conocimientos básicos sobre **JavaScript/TypeScript** y el **Framework** utilizado en el desarrollo.  
 
+---
+### Requisitos de Entrega:
 
-## Evaluación
-
-Se te estará evaluando los distintos aspectos de la pagina en general, y las preguntas prácticas, el sistema será evaluado sobre 20 puntos, y las preguntas prácticas sobre 10 puntos, con un total de 30 puntos. Para pasar esta evaluación deberás contar con el 70% de tu calificación para pasar.
+Al finalizar cada etapa, deberás realizar un **Pull Request** con todos los cambios realizados. Es importante incluir comentarios detallados que expliquen cada acción o modificación llevada a cabo.
+### Evaluación
+---
+Se evaluarán los diferentes aspectos de la página en general y las preguntas prácticas. La calificación total estará dividida de la siguiente manera:
+- **Sistema:** Evaluado sobre un total de 20 puntos.  
+- **Preguntas prácticas:** Evaluadas sobre un total de 10 puntos.  
+El puntaje máximo será de 30 puntos, y para aprobar la evaluación se deberá alcanzar al menos el **70%** de la calificación total.
 
 ¡¡¡ MUCHOS ÉXITOS !!!!
