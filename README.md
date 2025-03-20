@@ -81,13 +81,14 @@ Sin embargo, debe cumplir con los siguientes lineamientos:
 - Incluir una **landing page** que sirva como punto de inicio para un BackOffice.  
 - El BackOffice debe contar con:
 
- 1) Un sistema de login.  
+    1) Un sistema de login.  
 
- 2) Distinción de roles.  
+    2) Distinción de roles.  
 
- 3) Rutas protegidas.  
+    3) Rutas protegidas.  
 
- 4) Vistas que permitan la visualización, actualización, creación y, en caso necesario, eliminación de datos.  
+    4) Vistas que permitan la visualización, actualización, creación y, en caso necesario, eliminación de datos. 
+
 Tendrás **30 minutos** para pensar en un nuevo contexto. Si no logras definirlo en ese tiempo, se continuará con el contexto propuesto.
 ---
 ### Etapas
