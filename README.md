@@ -136,24 +136,6 @@ Una vez completada la landing page, se diseñará y maquetará un **BackOffice**
 
 ---
 
-### Etapas
-
-El desarrollo de esta aplicación se llevará a cabo en tres (3) etapas:
-
-1. **Primera Etapa:**  
-   - Desarrollo de la landing page.  
-   - Plazo: **un (1) día** para completarla.
-
-2. **Segunda Etapa:**  
-   - Implementación del BackOffice.  
-   - Plazo inicial: **un (1) día**, con posibilidad de extenderlo hasta **dos (2) días** si es necesario.
-
-3. **Tercera Etapa:**  
-   - Realización de una prueba teórica.  
-   - Evaluación de conocimientos básicos sobre **JavaScript/TypeScript** y el **framework** utilizado.  
-
----
-
 ### Requisitos de Entrega
 
 Al finalizar cada etapa, deberás realizar un **Pull Request** con los siguientes detalles:  
