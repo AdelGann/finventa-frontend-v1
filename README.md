@@ -166,16 +166,4 @@ Al finalizar cada etapa, deberás realizar un **Pull Request** con los siguiente
 
 ---
 
-### Evaluación
-
-La calificación total estará dividida de la siguiente manera:
-
-- **Sistema:** Evaluado sobre un total de **20 puntos**.  
-- **Preguntas prácticas:** Evaluadas sobre un total de **10 puntos**.  
-
-**Puntaje máximo:** 30 puntos.  
-**Requisito de aprobación:** Alcanzar al menos el **70%** de la calificación total.
-
----
-
 ### ¡Muchos Éxitos!
