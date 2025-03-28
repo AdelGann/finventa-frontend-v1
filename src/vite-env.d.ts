@@ -20,3 +20,12 @@ interface AuthState {
 interface SidebarState {
     isOpen: boolean;
 }
+
+interface Route {
+	path: string;
+	name: string;
+	icon?: ReactNode;
+}
+interface RoutesProps {
+	routes: Route[];
+}
