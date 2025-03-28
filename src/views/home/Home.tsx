@@ -5,7 +5,7 @@ import { Questions } from "./components/Q&A/Q&A.component";
 
 export const Home = () => {
 	return (
-		<div className="p-10 m-10">
+		<div className="p-20 m-10">
 			<Hero />
 			{/* <Pricing />  Descomentar despues*/}
 			<About />
