@@ -1,4 +1,5 @@
 import { ModeToggle } from "@/components/custom/Mode-Toggle";
+import { Badge } from "@/components/ui/badge";
 import {
 	NavigationMenu,
 	// NavigationMenuContent,
@@ -14,7 +15,10 @@ export const Navbar = ({ routes }: RoutesProps) => {
 	return (
 		<div className="flex justify-center items-center max-w-[70vw] p-4 m-4 shadow-lg rounded-2xl mx-auto">
 			<div className="flex justify-between w-full items-center">
-				<h3 className="text-xl font-bold pl-10">Lorem Ipsum</h3>
+				<div className="flex items-center gap-2">
+					<h3 className="text-xl font-bold pl-10">Z0</h3>
+					<Badge variant="outline">V.0.0.1</Badge>
+				</div>
 				<NavigationMenu>
 					<NavigationMenuList>
 						{/* 
@@ -44,7 +48,7 @@ export const Navbar = ({ routes }: RoutesProps) => {
 						<NavigationMenuItem>
 							<Link to={"/"}>
 								<NavigationMenuLink
-									className={`${navigationMenuTriggerStyle()} transition-all duration-300 hover:bg-neutral-100 hover:text-black dark:hover:bg-gray-500 dark:hover:text-white text-2sm`}
+									className={`${navigationMenuTriggerStyle()} rounded transition-all duration-300 hover:bg-neutral-100 hover:text-black dark:hover:bg-gray-500 dark:hover:text-white text-2sm`}
 								>
 									Inicia Sesión
 								</NavigationMenuLink>
@@ -53,7 +57,7 @@ export const Navbar = ({ routes }: RoutesProps) => {
 						<NavigationMenuItem>
 							<Link to={"/"}>
 								<NavigationMenuLink
-									className={`${navigationMenuTriggerStyle()} transition-all duration-300 bg-black text-white hover:bg-neutral-400 hover:text-white dark:bg-white dark:text-black dark:hover:bg-gray-700 dark:hover:text-white text-2sm`}
+									className={`${navigationMenuTriggerStyle()} rounded transition-all duration-300 bg-black text-white hover:bg-neutral-400 hover:text-white dark:bg-white dark:text-black dark:hover:bg-gray-700 dark:hover:text-white text-2sm`}
 								>
 									¡Únete Hoy!
 								</NavigationMenuLink>
