@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 export const Footer = ({ routes }: RoutesProps) => {
 	return (
-		<div className="flex justify-center p-10 ">
+		<motion.footer
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ delay: 0.2, duration: 0.3 }}
+			className="flex justify-center p-10 "
+		>
 			<div className="text-[12px] text-gray-500 flex justify-around w-96">
 				<label>Z0© 2025. All Rights Reserved</label>
 				<div className="flex gap-5">
@@ -13,6 +18,6 @@ export const Footer = ({ routes }: RoutesProps) => {
 					))}
 				</div>
 			</div>
-		</div>
+		</motion.footer>
 	);
 };

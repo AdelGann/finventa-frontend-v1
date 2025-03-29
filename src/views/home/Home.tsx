@@ -1,6 +1,7 @@
 import { About } from "./components/About/About.component";
 import { Hero } from "./components/Hero/Hero.component";
 import { Questions } from "./components/Q&A/Q&A.component";
+
 // import { Pricing } from "./components/Pricing/Pricing.component";
 
 export const Home = () => {
@@ -9,7 +10,9 @@ export const Home = () => {
 			<Hero />
 			{/* <Pricing />  Descomentar despues*/}
 			<About />
-			<Questions />
+			<div id="Q&A" className="Q&A">
+				<Questions />
+			</div>
 		</div>
 	);
 };

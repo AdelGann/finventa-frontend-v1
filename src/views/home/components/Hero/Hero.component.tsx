@@ -7,8 +7,8 @@ import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
 export const Hero = () => {
 	return (
 		<>
-			<section className="flex justify-center items-center w-full h-[400px] relative">
-				<BackgroundGrid size={20} />
+			<section className=" flex justify-center w-full h-[50vh] relative items-center" id="home">
+				<BackgroundGrid size={50} />
 				<motion.div
 					initial={{ opacity: 0, y: 50 }}
 					animate={{ opacity: 1, y: 0 }}

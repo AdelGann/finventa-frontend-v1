@@ -1,3 +1,7 @@
 export const Pricing = () => {
-	return <div>Pricing</div>;
+	return (
+		<div id="pricing">
+			<div></div>
+		</div>
+	);
 };

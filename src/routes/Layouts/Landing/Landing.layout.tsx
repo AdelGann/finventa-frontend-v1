@@ -16,10 +16,10 @@ import { Routes } from "@/lib/consts/routes";
 export const Landing = () => {
 	return (
 		<div className="min-h-screen flex flex-col">
-			<div className="fixed top-0 left-0 w-full z-50">
+			<div className="fixed top-0 left-0 w-full z-20">
 				<Navbar routes={Routes} />
 			</div>
-			<section className="flex-grow pt-16">
+			<section className="flex-grow p-10 z-0">
 				<Outlet />
 			</section>
 			<Footer routes={Routes} />
