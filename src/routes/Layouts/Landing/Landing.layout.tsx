@@ -19,7 +19,7 @@ export const Landing = () => {
 			<div className="fixed top-0 left-0 w-full z-20">
 				<Navbar routes={Routes} />
 			</div>
-			<section className="flex-grow p-10 z-0">
+			<section className="flex-grow p-0 lg:p-10 z-0">
 				<Outlet />
 			</section>
 			<Footer routes={Routes} />
