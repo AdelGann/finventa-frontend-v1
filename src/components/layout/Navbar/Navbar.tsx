@@ -9,10 +9,15 @@ import {
 	// NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
+import { motion } from "framer-motion";
 export const Navbar = ({ routes }: RoutesProps) => {
 	return (
-		<nav className="flex justify-center items-center max-w-[70vw] p-4 m-4 shadow-lg rounded-2xl mx-auto bg-white dark:bg-neutral-950">
+		<motion.nav
+			initial={{ opacity: 0, y: 0 }}
+			animate={{ opacity: 1, y: 10 }}
+			transition={{ delay: 0.2, duration: 0.3 }}
+			className="flex justify-center items-center max-w-[70vw] p-4 m-4 shadow-lg rounded-2xl mx-auto bg-white dark:bg-neutral-950"
+		>
 			<div className="flex justify-between w-full items-center">
 				<div className="flex items-center gap-2">
 					<h3 className="text-xl font-bold pl-10">Z0</h3>
@@ -61,6 +66,6 @@ export const Navbar = ({ routes }: RoutesProps) => {
 					</NavigationMenuList>
 				</NavigationMenu>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
