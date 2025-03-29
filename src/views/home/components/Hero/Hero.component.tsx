@@ -48,7 +48,7 @@ export const Hero = () => {
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.3, duration: 0.3 }}
 					>
-						<Button className="cursor-pointer bg-neutral-200 hover:bg-neutral-300 text-black dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700">
+						<Button className="cursor-pointer bg-neutral-50 hover:bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700">
 							Log in
 						</Button>
 						<Button className="cursor-pointer">Join Us!</Button>
