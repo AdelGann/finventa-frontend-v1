@@ -15,4 +15,4 @@ const Home = (
 	</svg>
 );
 
-export default Home;
+export { Home };
