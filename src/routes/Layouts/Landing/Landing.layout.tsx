@@ -22,7 +22,9 @@ export const Landing = () => {
 			<section className="flex-grow p-0 lg:p-10 z-0">
 				<Outlet />
 			</section>
-			<Footer routes={Routes} />
+			<div className="relative bottom-0 left-0 w-full z-20">
+				<Footer routes={Routes} />
+			</div>
 		</div>
 	);
 };

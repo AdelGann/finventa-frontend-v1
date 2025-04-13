@@ -63,12 +63,14 @@ export const Navbar = ({ routes }: RoutesProps) => {
 										))}
 
 										<NavigationMenuLink
+											href="/login"
 											className={`${navigationMenuTriggerStyle()} w-full cursor-pointer rounded transition-all duration-300 hover:bg-neutral-100 hover:text-black dark:hover:bg-gray-500 dark:hover:text-white text-2sm`}
 										>
 											Log in
 										</NavigationMenuLink>
-
 										<NavigationMenuLink
+										
+											href="/register"
 											className={`${navigationMenuTriggerStyle()} cursor-pointer rounded transition-all duration-300 bg-black text-white hover:bg-neutral-400 hover:text-white dark:bg-white dark:text-black dark:hover:bg-gray-700 dark:hover:text-white text-2sm`}
 										>
 											Sign up!

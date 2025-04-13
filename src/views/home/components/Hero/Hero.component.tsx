@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
+import { useNavigate } from "react-router-dom";
 // import asset from "@/assets/imgs/asset.png";
 
 export const Hero = () => {
+	const navigate = useNavigate();
 	return (
 		<>
-			<section className=" flex justify-center w-full h-[50vh] relative items-center" id="home">
+			<section className=" flex justify-center w-full h-[50vh] relative items-center">
 				<BackgroundGrid size={50} />
 				<motion.div
 					initial={{ opacity: 0, y: 50 }}
@@ -48,10 +50,13 @@ export const Hero = () => {
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.3, duration: 0.3 }}
 					>
-						<Button className="cursor-pointer bg-neutral-50 hover:bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700">
+						<Button
+							onClick={() => navigate("/login")}
+							className="cursor-pointer bg-neutral-50 hover:bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
+						>
 							Log in
 						</Button>
-						<Button className="cursor-pointer">Join Us!</Button>
+						<Button onClick={() => navigate("/register")} className="cursor-pointer">Join Us!</Button>
 					</motion.div>
 				</motion.div>
 			</section>
