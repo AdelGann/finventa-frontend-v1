@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export const Questions = () => {
 	return (
 		<motion.section
-			className="w-full flex flex-col items-center"
+			className="w-full flex flex-col items-center "
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ delay: 0.3, duration: 0.3 }}

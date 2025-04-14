@@ -17,7 +17,7 @@ import { BackgroundDots } from "@/components/ui/BackgroundDots";
 export const Landing = () => {
 	return (
 		<div className="min-h-screen flex flex-col">
-			<div className="fixed top-0 left-0 w-full z-20">
+			<div className="fixed top-0 left-0 w-full z-30">
 				<Navbar routes={landing_routes} />
 			</div>
 			<BackgroundDots numDots={30}>
@@ -25,11 +25,11 @@ export const Landing = () => {
 					<Outlet />
 				</section>
 			</BackgroundDots>
-			<div className="fixed bottom-0 left-0 w-full z-20">
+			<div className="fixed bottom-0 left-0 w-full z-30">
 				<Footer routes={landing_routes} />
 			</div>
 		</div>
 	);
 };
-//
+
 export default Landing;

@@ -6,7 +6,7 @@ export const Footer = ({ routes }: RoutesProps) => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.2, duration: 0.3 }}
-			className="flex justify-center p-10 "
+			className="flex justify-center p-10 bg-white dark:bg-neutral-950 rounded-t-2xl shadow-sm dark:shadow-neutral-800"
 		>
 			<div className="text-[12px] text-gray-500 flex justify-around w-96">
 				<label>Z0© 2025. All Rights Reserved</label>

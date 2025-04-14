@@ -38,7 +38,7 @@ const Login = () => {
 	return (
 		<>
 			<SEO title="Z0 - Login" description="Login into your account" />
-			<BackgroundDots blockRef={contentRef as React.RefObject<HTMLDivElement>}>
+			<BackgroundDots blockRef={contentRef as React.RefObject<HTMLDivElement>} allowPointerEvents>
 				<motion.div
 					initial={{ opacity: 0, y: -100 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ const Login = () => {
 				>
 					<div
 						ref={contentRef}
-						className="flex flex-col w-[80vw] h-[45vh] sm:max-w-[50vw] lg:max-w-[50vw] xl:max-w-[25vw] p-5 justify-center content-center shadow-lg shadow-black/20 dark:shadow-white/20 bg-white dark:bg-neutral-900 rounded-lg overflow-y-auto"
+						className="flex flex-col w-[80vw] h-[60vh] lg:h-[45vh] sm:max-w-[50vw] lg:max-w-[50vw] xl:max-w-[25vw] p-5 justify-center content-center shadow-lg shadow-black/20 dark:shadow-white/20 bg-white dark:bg-neutral-900 rounded-lg overflow-y-auto"
 					>
 						<div className="flex flex-col justify-between h-full">
 							<div className="flex flex-col gap-2 p-4">

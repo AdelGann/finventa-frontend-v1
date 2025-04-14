@@ -56,7 +56,9 @@ export const Hero = () => {
 						>
 							Log in
 						</Button>
-						<Button onClick={() => navigate("/register")} className="cursor-pointer">Join Us!</Button>
+						<Button onClick={() => navigate("/register")} className="cursor-pointer">
+							Join Us!
+						</Button>
 					</motion.div>
 				</motion.div>
 			</section>

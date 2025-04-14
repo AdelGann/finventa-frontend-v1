@@ -41,7 +41,7 @@ const Register = () => {
 	return (
 		<>
 			<SEO title="Z0 - Register" description="Create an account right now" />
-			<BackgroundDots blockRef={contentRef as React.RefObject<HTMLDivElement>}>
+			<BackgroundDots blockRef={contentRef as React.RefObject<HTMLDivElement>} allowPointerEvents>
 				<motion.div
 					initial={{ opacity: 0, y: -100 }}
 					animate={{ opacity: 1, y: 0 }}

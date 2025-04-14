@@ -28,7 +28,7 @@ export const BackgroundDots = ({
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [dots, setDots] = useState<Dot[]>([]);
-	const dotsRef = useRef<Dot[]>([]); // Usamos una referencia para almacenar los puntos
+	const dotsRef = useRef<Dot[]>([]);
 	const timeRef = useRef<number>(0);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const animationFrameRef = useRef<number>(0);
@@ -36,7 +36,6 @@ export const BackgroundDots = ({
 
 	const createDots = useCallback(() => {
 		const newDots: Dot[] = [];
-
 		for (let i = 0; i < numDots; i++) {
 			const x = Math.random() * document.documentElement.scrollWidth;
 			const y = Math.random() * document.documentElement.scrollHeight;
@@ -59,21 +58,19 @@ export const BackgroundDots = ({
 	useEffect(() => {
 		const initialDots = createDots();
 		setDots(initialDots);
-		dotsRef.current = initialDots; // Almacenar los puntos en la referencia
-
+		dotsRef.current = initialDots;
 		const handleResize = () => {
 			const resizedDots = createDots();
 			setDots(resizedDots);
-			dotsRef.current = resizedDots; // Actualizar la referencia
+			dotsRef.current = resizedDots;
 		};
-
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, [createDots]);
 
-	const handleMouseMove = useCallback(
-		(e: React.MouseEvent) => {
-			// Verificar si el puntero está sobre el contenedor referenciado
+	// Añadimos un listener global para mousemove
+	useEffect(() => {
+		const handleWindowMouseMove = (e: MouseEvent) => {
 			if (blockRef?.current) {
 				const rect = blockRef.current.getBoundingClientRect();
 				isBlocked.current =
@@ -84,20 +81,18 @@ export const BackgroundDots = ({
 			} else {
 				isBlocked.current = false;
 			}
-
 			if (!isBlocked.current) {
 				mouseX.set(e.clientX);
 				mouseY.set(e.clientY);
 			}
-		},
-		[mouseX, mouseY, blockRef]
-	);
+		};
+		window.addEventListener("mousemove", handleWindowMouseMove);
+		return () => window.removeEventListener("mousemove", handleWindowMouseMove);
+	}, [mouseX, mouseY, blockRef]);
 
 	useEffect(() => {
 		const animate = (time: number) => {
 			timeRef.current = time * 0.001;
-
-			// Actualizar los puntos en la referencia
 			dotsRef.current = dotsRef.current.map((dot) => ({
 				...dot,
 				x:
@@ -109,15 +104,10 @@ export const BackgroundDots = ({
 					Math.cos(timeRef.current * dot.speed + dot.id) * 20 * dot.depth +
 					Math.sin(timeRef.current * dot.speed * 0.5) * dot.offsetY * dot.depth,
 			}));
-
-			// Solo actualizar el estado si es necesario
 			setDots([...dotsRef.current]);
-
 			animationFrameRef.current = requestAnimationFrame(animate);
 		};
-
 		animationFrameRef.current = requestAnimationFrame(animate);
-
 		return () => {
 			if (animationFrameRef.current) {
 				cancelAnimationFrame(animationFrameRef.current);
@@ -126,26 +116,27 @@ export const BackgroundDots = ({
 	}, []);
 
 	return (
-		<motion.div
-			ref={containerRef}
-			className={`fixed inset-0 z-10 w-full h-full overflow-hidden bg-white dark:bg-black ${
-				allowPointerEvents ? "pointer-events-auto" : "pointer-events-none"
-			}`}
-			onMouseMove={handleMouseMove}
-		>
-			{dots.map((dot) => (
-				<MemoizedDot
-					key={dot.id}
-					dot={dot}
-					mouseX={mouseX}
-					mouseY={mouseY}
-					isBlocked={isBlocked.current}
-				/>
-			))}
-			<div className="relative z-50">
+		<>
+			<motion.div
+				ref={containerRef}
+				className={`fixed inset-0 z-10 w-full h-full bg-white dark:bg-black ${
+					allowPointerEvents ? "pointer-events-auto" : "pointer-events-none"
+				}`}
+			>
+				{dots.map((dot) => (
+					<MemoizedDot
+						key={dot.id}
+						dot={dot}
+						mouseX={mouseX}
+						mouseY={mouseY}
+						isBlocked={isBlocked.current}
+					/>
+				))}
+			</motion.div>
+			<div className="relative z-20">
 				<div className="pointer-events-auto">{children}</div>
 			</div>
-		</motion.div>
+		</>
 	);
 };
 
@@ -165,30 +156,19 @@ const MemoizedDot = memo(
 			useTransform(mouseX, (value: number) =>
 				isBlocked ? dot.x : dot.x + (value - dot.x) * dot.depth * 0.2
 			),
-			{
-				stiffness: 800,
-				damping: 40,
-				mass: 0.1,
-			}
+			{ stiffness: 800, damping: 40, mass: 0.1 }
 		);
-
 		const y = useSpring(
 			useTransform(mouseY, (value) =>
 				isBlocked ? dot.y : dot.y + (value - dot.y) * dot.depth * 0.2
 			),
-			{
-				stiffness: 800,
-				damping: 40,
-				mass: 0.1,
-			}
+			{ stiffness: 800, damping: 40, mass: 0.1 }
 		);
-
 		const distance = useTransform([mouseX, mouseY], ([mx, my]) => {
 			const dx = (mx as number) - dot.x;
 			const dy = (my as number) - dot.y;
 			return Math.sqrt(dx * dx + dy * dy);
 		});
-
 		const scale = useTransform(distance, [0, 150], [1 + dot.depth * 0.8, 1]);
 		const opacity = useTransform(distance, [0, 150], [0.8 * dot.depth, 0.3 * dot.depth]);
 
@@ -209,13 +189,10 @@ const MemoizedDot = memo(
 			/>
 		);
 	},
-	(prev, next) => {
-		return (
-			prev.mouseX.get() === next.mouseX.get() &&
-			prev.mouseY.get() === next.mouseY.get() &&
-			prev.dot.x === next.dot.x &&
-			prev.dot.y === next.dot.y &&
-			prev.isBlocked === next.isBlocked
-		);
-	}
+	(prev, next) =>
+		prev.mouseX.get() === next.mouseX.get() &&
+		prev.mouseY.get() === next.mouseY.get() &&
+		prev.dot.x === next.dot.x &&
+		prev.dot.y === next.dot.y &&
+		prev.isBlocked === next.isBlocked
 );

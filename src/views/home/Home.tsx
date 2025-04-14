@@ -3,15 +3,12 @@ import { About } from "./components/About/About.component";
 import { Hero } from "./components/Hero/Hero.component";
 import { Questions } from "./components/Q&A/Q&A.component";
 
-// import { Pricing } from "./components/Pricing/Pricing.component";
-
 const Home = () => {
 	return (
 		<>
 			<SEO title="Z0 - Manage your work" description="Make your life easier" />
-			<div className="relative w-full h-screen">
-				<div className="absolute inset-0 bg-gray-200 opacity-0"></div>
-				<div className="relative z-10 p-20 m-10">
+			<div className="w-full min-h-screen">
+				<div className="z-10 p-20 m-10">
 					<div id="home">
 						<Hero />
 					</div>
@@ -25,7 +22,6 @@ const Home = () => {
 				</div>
 			</div>
 		</>
-		// 	<div className="relative w-full h-screen z-20 flex items-center justify-center">
 	);
 };
 

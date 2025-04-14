@@ -16,7 +16,8 @@ import { motion } from "framer-motion";
 import { Menu } from "@/assets/icons/Menu";
 import { Link } from "react-router-dom";
 
-export const Navbar = ({ routes }: RoutesProps) => {
+interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps {}
+export const Navbar = ({ routes, ...rest }: RoutesElement) => {
 	const { screenType } = useMobile();
 
 	return (
@@ -26,7 +27,7 @@ export const Navbar = ({ routes }: RoutesProps) => {
 			transition={{ delay: 0.2, duration: 0.3 }}
 			className="flex justify-center items-center max-w-[70vw] p-4 m-4 shadow-sm dark:shadow-neutral-800 rounded-2xl mx-auto bg-white dark:bg-neutral-950"
 		>
-			<div className="flex justify-between w-full items-center">
+			<div className="flex justify-between w-full items-center" {...(rest as React.HTMLAttributes<HTMLDivElement>)}>
 				<Link to="/" className="flex items-center gap-2">
 					<h3 className="text-xl font-bold pl-10">Z0</h3>
 					<Badge variant="outline">V.0.0.1</Badge>
@@ -69,7 +70,6 @@ export const Navbar = ({ routes }: RoutesProps) => {
 											Log in
 										</NavigationMenuLink>
 										<NavigationMenuLink
-										
 											href="/register"
 											className={`${navigationMenuTriggerStyle()} cursor-pointer rounded transition-all duration-300 bg-black text-white hover:bg-neutral-400 hover:text-white dark:bg-white dark:text-black dark:hover:bg-gray-700 dark:hover:text-white text-2sm`}
 										>
