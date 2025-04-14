@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { onValidateError } from "@/lib/helpers/onValidateError";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const validationSchema = Yup.object().shape({
 	full_name: Yup.string().required("Full name is required"),
@@ -15,7 +16,8 @@ const validationSchema = Yup.object().shape({
 	repeat_password: Yup.string().required("Repeat password is required"),
 });
 
-export const Register = () => {
+const Register = () => {
+	const contentRef = useRef<HTMLDivElement | null>(null);
 	const { values, handleChange, handleSubmit } = useFormik<{
 		full_name: string;
 		email: string;
@@ -36,14 +38,17 @@ export const Register = () => {
 		},
 	});
 	return (
-		<BackgroundDots>
+		<BackgroundDots blockRef={contentRef as React.RefObject<HTMLDivElement>}>
 			<motion.div
 				initial={{ opacity: 0, y: -100 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
 				className="relative w-full h-screen z-20 flex items-center justify-center"
 			>
-				<div className="flex flex-col w-[80vw] h-[60vh] sm:max-w-[50vw] lg:max-w-[50vw] xl:max-w-[25vw] p-5 justify-center content-center shadow-lg shadow-black/20 dark:shadow-white/20 bg-white dark:bg-neutral-900 rounded-lg overflow-y-auto">
+				<div
+					ref={contentRef}
+					className="flex flex-col w-[80vw] h-[60vh] sm:max-w-[50vw] lg:max-w-[50vw] xl:max-w-[25vw] p-5 justify-center content-center shadow-lg shadow-black/20 dark:shadow-white/20 bg-white dark:bg-neutral-900 rounded-lg overflow-y-auto"
+				>
 					<div className="flex flex-col justify-between h-full">
 						<div className="flex flex-col gap-2 p-4">
 							<h4 className="text-2xl font-bold">Welcome to Z0 Platform</h4>
@@ -114,3 +119,4 @@ export const Register = () => {
 		</BackgroundDots>
 	);
 };
+export default Register;

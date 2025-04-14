@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Navbar } from "@/components/layout/Navbar/Navbar";
 import { Routes } from "@/lib/consts/routes";
+import { BackgroundDots } from "@/components/ui/BackgroundDots";
 
 /**
  * Layout principal para las páginas de la aplicación.
@@ -19,13 +20,16 @@ export const Landing = () => {
 			<div className="fixed top-0 left-0 w-full z-20">
 				<Navbar routes={Routes} />
 			</div>
-			<section className="flex-grow p-0 lg:p-10 z-0">
-				<Outlet />
-			</section>
-			<div className="relative bottom-0 left-0 w-full z-20">
+			<BackgroundDots numDots={30}>
+				<section className="flex-grow p-0 lg:p-10 z-0">
+					<Outlet />
+				</section>
+			</BackgroundDots>
+			<div className="fixed bottom-0 left-0 w-full z-20">
 				<Footer routes={Routes} />
 			</div>
 		</div>
 	);
 };
 //
+export default Landing;

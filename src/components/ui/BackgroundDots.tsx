@@ -6,26 +6,35 @@ interface Dot {
 	y: number;
 	id: number;
 	size: number;
-	depth: number; // Nuevo: para profundidad de campo
-	baseX: number; // Nueva: posición base X
-	baseY: number; // Nueva: posición base Y
-	offsetX: number; // Nuevo: offset aleatorio para dispersión
-	offsetY: number; // Nuevo: offset aleatorio para dispersión
-	speed: number; // Nuevo: velocidad individual
+	depth: number;
+	baseX: number;
+	baseY: number;
+	offsetX: number;
+	offsetY: number;
+	speed: number;
 }
 
-export const BackgroundDots = ({ children }: { children: React.ReactNode }) => {
+export const BackgroundDots = ({
+	children,
+	allowPointerEvents = false,
+	blockRef = null,
+	numDots = 50,
+}: {
+	children: React.ReactNode;
+	allowPointerEvents?: boolean;
+	blockRef?: React.RefObject<HTMLDivElement> | null;
+	numDots?: number;
+}) => {
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [dots, setDots] = useState<Dot[]>([]);
 	const timeRef = useRef<number>(0);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const animationFrameRef = useRef<number>(0);
+	const isBlocked = useRef(false);
 
-	// Optimización: Memoizar la creación de puntos
 	const createDots = useCallback(() => {
 		const newDots: Dot[] = [];
-		const numDots = 40; // Aumentado el número de puntos
 
 		for (let i = 0; i < numDots; i++) {
 			const x = Math.random() * document.documentElement.scrollWidth;
@@ -44,12 +53,11 @@ export const BackgroundDots = ({ children }: { children: React.ReactNode }) => {
 			});
 		}
 		return newDots;
-	}, []);
+	}, [numDots]);
 
 	useEffect(() => {
 		setDots(createDots());
 
-		// Actualizar puntos cuando cambia el tamaño de la ventana
 		const handleResize = () => {
 			setDots(createDots());
 		};
@@ -60,16 +68,30 @@ export const BackgroundDots = ({ children }: { children: React.ReactNode }) => {
 
 	const handleMouseMove = useCallback(
 		(e: React.MouseEvent) => {
-			// Actualizar la posición del mouse sin importar el target
-			mouseX.set(e.clientX);
-			mouseY.set(e.clientY);
+			// Verificar si el puntero está sobre el contenedor referenciado
+			if (blockRef?.current) {
+				const rect = blockRef.current.getBoundingClientRect();
+				isBlocked.current =
+					e.clientX >= rect.left &&
+					e.clientX <= rect.right &&
+					e.clientY >= rect.top &&
+					e.clientY <= rect.bottom;
+			} else {
+				isBlocked.current = false;
+			}
+
+			if (!isBlocked.current) {
+				mouseX.set(e.clientX);
+				mouseY.set(e.clientY);
+			}
 		},
-		[mouseX, mouseY]
+		[mouseX, mouseY, blockRef]
 	);
 
 	useEffect(() => {
 		const animate = (time: number) => {
 			timeRef.current = time * 0.001;
+
 			setDots((prevDots) =>
 				prevDots.map((dot) => ({
 					...dot,
@@ -83,6 +105,7 @@ export const BackgroundDots = ({ children }: { children: React.ReactNode }) => {
 						Math.sin(timeRef.current * dot.speed * 0.5) * dot.offsetY * dot.depth,
 				}))
 			);
+
 			animationFrameRef.current = requestAnimationFrame(animate);
 		};
 
@@ -98,16 +121,22 @@ export const BackgroundDots = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<motion.div
 			ref={containerRef}
-			className="fixed inset-0 z-10 w-full h-full overflow-hidden bg-white dark:bg-black"
+			className={`fixed inset-0 z-10 w-full h-full overflow-hidden bg-white dark:bg-black ${
+				allowPointerEvents ? "pointer-events-auto" : "pointer-events-none"
+			}`}
 			onMouseMove={handleMouseMove}
 		>
 			{dots.map((dot) => (
-				<MemoizedDot key={dot.id} dot={dot} mouseX={mouseX} mouseY={mouseY} />
+				<MemoizedDot
+					key={dot.id}
+					dot={dot}
+					mouseX={mouseX}
+					mouseY={mouseY}
+					isBlocked={isBlocked.current}
+				/>
 			))}
-			<div className="relative z-50 pointer-events-none">
-				<div className="pointer-events-auto" onMouseMove={(e) => e.stopPropagation()}>
-					{children}
-				</div>
+			<div className="relative z-50">
+				<div className="pointer-events-auto">{children}</div>
 			</div>
 		</motion.div>
 	);
@@ -118,13 +147,18 @@ const MemoizedDot = memo(
 		dot,
 		mouseX,
 		mouseY,
+		isBlocked,
 	}: {
 		dot: Dot;
 		mouseX: MotionValue<number>;
 		mouseY: MotionValue<number>;
+		isBlocked: boolean;
 	}) => {
+		
 		const x = useSpring(
-			useTransform(mouseX, (value: number) => dot.x + (value - dot.x) * dot.depth * 0.2),
+			useTransform(mouseX, (value: number) =>
+				isBlocked ? dot.x : dot.x + (value - dot.x) * dot.depth * 0.2
+			),
 			{
 				stiffness: 800,
 				damping: 40,
@@ -133,7 +167,9 @@ const MemoizedDot = memo(
 		);
 
 		const y = useSpring(
-			useTransform(mouseY, (value) => dot.y + (value - dot.y) * dot.depth * 0.2),
+			useTransform(mouseY, (value) =>
+				isBlocked ? dot.y : dot.y + (value - dot.y) * dot.depth * 0.2
+			),
 			{
 				stiffness: 800,
 				damping: 40,
@@ -172,7 +208,8 @@ const MemoizedDot = memo(
 			prev.mouseX.get() === next.mouseX.get() &&
 			prev.mouseY.get() === next.mouseY.get() &&
 			prev.dot.x === next.dot.x &&
-			prev.dot.y === next.dot.y
+			prev.dot.y === next.dot.y &&
+			prev.isBlocked === next.isBlocked
 		);
 	}
 );
