@@ -28,6 +28,7 @@ export const BackgroundDots = ({
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [dots, setDots] = useState<Dot[]>([]);
+	const dotsRef = useRef<Dot[]>([]); // Usamos una referencia para almacenar los puntos
 	const timeRef = useRef<number>(0);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const animationFrameRef = useRef<number>(0);
@@ -56,10 +57,14 @@ export const BackgroundDots = ({
 	}, [numDots]);
 
 	useEffect(() => {
-		setDots(createDots());
+		const initialDots = createDots();
+		setDots(initialDots);
+		dotsRef.current = initialDots; // Almacenar los puntos en la referencia
 
 		const handleResize = () => {
-			setDots(createDots());
+			const resizedDots = createDots();
+			setDots(resizedDots);
+			dotsRef.current = resizedDots; // Actualizar la referencia
 		};
 
 		window.addEventListener("resize", handleResize);
@@ -92,19 +97,21 @@ export const BackgroundDots = ({
 		const animate = (time: number) => {
 			timeRef.current = time * 0.001;
 
-			setDots((prevDots) =>
-				prevDots.map((dot) => ({
-					...dot,
-					x:
-						dot.baseX +
-						Math.sin(timeRef.current * dot.speed + dot.id) * 20 * dot.depth +
-						Math.cos(timeRef.current * dot.speed * 0.5) * dot.offsetX * dot.depth,
-					y:
-						dot.baseY +
-						Math.cos(timeRef.current * dot.speed + dot.id) * 20 * dot.depth +
-						Math.sin(timeRef.current * dot.speed * 0.5) * dot.offsetY * dot.depth,
-				}))
-			);
+			// Actualizar los puntos en la referencia
+			dotsRef.current = dotsRef.current.map((dot) => ({
+				...dot,
+				x:
+					dot.baseX +
+					Math.sin(timeRef.current * dot.speed + dot.id) * 20 * dot.depth +
+					Math.cos(timeRef.current * dot.speed * 0.5) * dot.offsetX * dot.depth,
+				y:
+					dot.baseY +
+					Math.cos(timeRef.current * dot.speed + dot.id) * 20 * dot.depth +
+					Math.sin(timeRef.current * dot.speed * 0.5) * dot.offsetY * dot.depth,
+			}));
+
+			// Solo actualizar el estado si es necesario
+			setDots([...dotsRef.current]);
 
 			animationFrameRef.current = requestAnimationFrame(animate);
 		};
@@ -154,7 +161,6 @@ const MemoizedDot = memo(
 		mouseY: MotionValue<number>;
 		isBlocked: boolean;
 	}) => {
-		
 		const x = useSpring(
 			useTransform(mouseX, (value: number) =>
 				isBlocked ? dot.x : dot.x + (value - dot.x) * dot.depth * 0.2

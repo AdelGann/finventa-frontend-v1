@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Navbar } from "@/components/layout/Navbar/Navbar";
-import { Routes } from "@/lib/consts/routes";
+import { landing_routes } from "@/lib/consts/routes";
 import { BackgroundDots } from "@/components/ui/BackgroundDots";
 
 /**
@@ -18,7 +18,7 @@ export const Landing = () => {
 	return (
 		<div className="min-h-screen flex flex-col">
 			<div className="fixed top-0 left-0 w-full z-20">
-				<Navbar routes={Routes} />
+				<Navbar routes={landing_routes} />
 			</div>
 			<BackgroundDots numDots={30}>
 				<section className="flex-grow p-0 lg:p-10 z-0">
@@ -26,7 +26,7 @@ export const Landing = () => {
 				</section>
 			</BackgroundDots>
 			<div className="fixed bottom-0 left-0 w-full z-20">
-				<Footer routes={Routes} />
+				<Footer routes={landing_routes} />
 			</div>
 		</div>
 	);

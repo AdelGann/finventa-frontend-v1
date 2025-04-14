@@ -13,5 +13,28 @@ export default defineConfig({
 	},
 	server: {
 		open: true,
-	}
+	},
+	dev: {
+		sourcemap: true,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		sourcemapIgnoreList: (sourcePath: string, _sourcemapPath: string) => {
+			return sourcePath.includes("node_modules") || sourcePath.includes("dist");
+		},
+	},
+	build: {
+		sourcemap: false,
+		rollupOptions: {
+			output: {
+				manualChunks: (id) => {
+					if (id.includes("node_modules")) {
+						return id
+							.toString()
+							.split("node_modules/")[1]
+							.split("/")[0]
+							.replace("@", "");
+					}
+				},
+			},
+		},
+	},
 });
