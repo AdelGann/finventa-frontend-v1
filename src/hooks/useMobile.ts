@@ -1,5 +1,29 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Custom hook to determine the screen type based on the current window width.
+ * 
+ * This hook listens to window resize events and updates the `screenType` state
+ * with a string representing the screen size category.
+ * 
+ * Screen size categories:
+ * - "sm": width < 360
+ * - "2sm": 360 <= width < 480
+ * - "3sm": 480 <= width < 768
+ * - "lg": 768 <= width < 1024
+ * - "2lg": 1024 <= width < 1440
+ * - "xl": 1440 <= width < 1920
+ * - "2xl": 1920 <= width < 2560
+ * - "4xl": width >= 2560
+ * - "unknown": width does not match any category
+ * 
+ * @returns An object containing:
+ * - `screenType` (string): The current screen type based on the window width.
+ * 
+ * @example
+ * const { screenType } = useMobile();
+ * console.log(screenType); // Outputs the current screen type, e.g., "lg"
+ */
 export const useMobile = () => {
 	const [screenType, setScreenType] = useState("");
 
@@ -12,7 +36,7 @@ export const useMobile = () => {
 		if (width >= 1440 && width < 1920) return "xl";
 		if (width >= 1920 && width < 2560) return "2xl";
 		if (width >= 2560) return "4xl";
-		return "Desconocido";
+		return "unknown";
 	};
 
 	useEffect(() => {
