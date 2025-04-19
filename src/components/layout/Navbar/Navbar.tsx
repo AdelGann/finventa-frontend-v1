@@ -17,7 +17,7 @@ import { Menu } from "@/assets/icons/Menu";
 import { Link } from "react-router-dom";
 
 interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps {}
-export const Navbar = ({ routes, ...rest }: RoutesElement) => {
+const Navbar = ({ routes, ...rest }: RoutesElement) => {
 	const { screenType } = useMobile();
 
 	return (
@@ -27,7 +27,10 @@ export const Navbar = ({ routes, ...rest }: RoutesElement) => {
 			transition={{ delay: 0.2, duration: 0.3 }}
 			className="flex justify-center items-center max-w-[70vw] p-4 m-4 shadow-sm dark:shadow-neutral-800 rounded-2xl mx-auto bg-white dark:bg-neutral-950"
 		>
-			<div className="flex justify-between w-full items-center" {...(rest as React.HTMLAttributes<HTMLDivElement>)}>
+			<div
+				className="flex justify-between w-full items-center"
+				{...(rest as React.HTMLAttributes<HTMLDivElement>)}
+			>
 				<Link to="/" className="flex items-center gap-2">
 					<h3 className="text-xl font-bold pl-10">Z0</h3>
 					<Badge variant="outline">V.0.0.1</Badge>
@@ -119,3 +122,4 @@ export const Navbar = ({ routes, ...rest }: RoutesElement) => {
 		</motion.nav>
 	);
 };
+export default Navbar;

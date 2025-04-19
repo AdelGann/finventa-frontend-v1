@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-export const Footer = ({ routes }: RoutesProps) => {
+
+const Footer = ({ routes }: RoutesProps) => {
 	return (
 		<motion.footer
 			initial={{ opacity: 0, y: 20 }}
@@ -21,3 +22,4 @@ export const Footer = ({ routes }: RoutesProps) => {
 		</motion.footer>
 	);
 };
+export default Footer;

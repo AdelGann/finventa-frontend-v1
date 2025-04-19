@@ -120,3 +120,21 @@ html {
 		@apply bg-background text-foreground;
 	}
 }
+
+@layer utilities {
+	.grid-areas-backoffice {
+		grid-template-areas:
+			"aside header header"
+			"aside main main"
+			"aside main main";
+	}
+	.area-header {
+		grid-area: header;
+	}
+	.area-aside {
+		grid-area: aside;
+	}
+	.area-main {
+		grid-area: main;
+	}
+}

@@ -1,8 +1,11 @@
+import { lazy } from "react";
 import { Outlet } from "react-router-dom";
-import { Footer } from "@/components/layout/Footer/Footer";
-import { Navbar } from "@/components/layout/Navbar/Navbar";
-import { landing_routes } from "@/lib/consts/routes";
+
 import { BackgroundDots } from "@/components/ui/BackgroundDots";
+import landing_routes from "@/lib/consts/routes";
+
+const Navbar = lazy(() => import("@/components/layout/Navbar/Navbar"));
+const Footer = lazy(() => import("@/components/layout/Footer/Footer"));
 
 /**
  * Layout principal para las páginas de la aplicación.

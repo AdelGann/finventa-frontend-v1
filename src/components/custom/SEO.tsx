@@ -4,29 +4,52 @@ interface SEOProps {
 	title: string;
 	description: string;
 	keywords?: string;
-	ogTitle?: string;
-	ogDescription?: string;
+
+	ogImage?: string;
+	ogUrl?: string;
+	twitterCard?: string;
+	twitterSite?: string;
 }
 
-export const SEO = ({ title, description, keywords, ogTitle, ogDescription }: SEOProps) => {
+export const SEO = ({
+	title,
+	description,
+	keywords,
+	ogImage,
+	ogUrl,
+	twitterCard = "summary_large_image",
+	twitterSite,
+}: SEOProps) => {
 	useEffect(() => {
 		document.title = title;
 
-		const setMetaTag = (name: string, content: string) => {
-			let metaTag = document.querySelector(`meta[name='${name}']`);
+		const setMetaTag = (attr: "name" | "property", name: string, content: string) => {
+			let metaTag = document.head.querySelector(`meta[${attr}="${name}"]`);
 			if (!metaTag) {
 				metaTag = document.createElement("meta");
-				metaTag.setAttribute("name", name);
+				metaTag.setAttribute(attr, name);
 				document.head.appendChild(metaTag);
 			}
 			metaTag.setAttribute("content", content);
 		};
 
-		setMetaTag("description", description);
-		if (keywords) setMetaTag("keywords", keywords);
-		if (ogTitle) setMetaTag("og:title", ogTitle);
-		if (ogDescription) setMetaTag("og:description", ogDescription);
-	}, [title, description, keywords, ogTitle, ogDescription]);
+		// Etiquetas básicas
+		setMetaTag("name", "description", description);
+		if (keywords) setMetaTag("name", "keywords", keywords);
+
+		// Open Graph: Utilizadas por Facebook, LinkedIn, WhatsApp, etc.
+		setMetaTag("property", "og:title", title || title);
+		setMetaTag("property", "og:description", description || description);
+		if (ogImage) setMetaTag("property", "og:image", ogImage);
+		if (ogUrl) setMetaTag("property", "og:url", ogUrl);
+
+		// Twitter Cards
+		setMetaTag("name", "twitter:card", twitterCard);
+		setMetaTag("name", "twitter:title", title);
+		setMetaTag("name", "twitter:description", description);
+		if (ogImage) setMetaTag("name", "twitter:image", ogImage);
+		if (twitterSite) setMetaTag("name", "twitter:site", twitterSite);
+	}, [title, description, keywords, ogImage, ogUrl, twitterCard, twitterSite]);
 
 	return null;
 };

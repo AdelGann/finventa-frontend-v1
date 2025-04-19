@@ -1,11 +1,15 @@
+import backoffice_routes from "@/lib/consts/backoffice.routes";
 import { Suspense, lazy, ReactNode } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Layouts
+const Landing = lazy(() => import("./Layouts/Landing/Landing.layout"));
+const Backoffice = lazy(() => import("./Layouts/Backoffice/Backoffice.layout"));
 
 const Home = lazy(() => import("@/views/home/Home"));
 const Login = lazy(() => import("@/views/login/Login"));
 const Register = lazy(() => import("@/views/Register/Register"));
 const NotFound = lazy(() => import("@/views/404/404"));
-const Landing = lazy(() => import("./Layouts/Landing/Landing.layout"));
 
 const SuspenseWrapper = ({ children }: { children: ReactNode }) => (
 	<Suspense
@@ -63,6 +67,21 @@ export const AppRoutes = () => {
 						</SuspenseWrapper>
 					}
 				/>
+				<Route
+					element={
+						<SuspenseWrapper>
+							<Backoffice />
+						</SuspenseWrapper>
+					}
+				>
+					{backoffice_routes.map((item, key) => (
+						<Route
+							key={key}
+							element={<SuspenseWrapper>{item.component}</SuspenseWrapper>}
+							path={item.path}
+						/>
+					))}
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	);
