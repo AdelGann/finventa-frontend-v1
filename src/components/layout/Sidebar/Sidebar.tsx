@@ -8,7 +8,7 @@ import { badgeVariants, textVariants } from "@/lib/consts/motion_variants";
 const Sidebar = ({ ...props }: SidebarProps) => {
 	const { isOpen, toggleSidebar, routes } = props;
 	const LEFT_SIZE = isOpen ? "215px" : "65px";
-	
+	const VERSION = import.meta.env.VITE_VERSION;
 	return (
 		<section>
 			<div className="absolute z-20">
@@ -33,7 +33,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
 						initial="closed"
 						animate={isOpen ? "open" : "closed"}
 					>
-						<Badge variant="outline">V.0.0.1</Badge>
+						<Badge variant="outline">{VERSION}</Badge>
 					</motion.div>
 				</div>
 				<hr className="my-6" />

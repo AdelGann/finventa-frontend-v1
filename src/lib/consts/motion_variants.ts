@@ -16,7 +16,7 @@ export const textVariants = {
 export const badgeVariants = {
 	open: {
 		opacity: 1,
-		width: "25%",
+		width: "30%",
 		marginLeft: 0,
 		transition: { duration: 0.3 },
 	},

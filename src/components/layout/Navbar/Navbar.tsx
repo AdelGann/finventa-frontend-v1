@@ -18,8 +18,8 @@ import { Link } from "react-router-dom";
 
 interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps {}
 const Navbar = ({ routes, ...rest }: RoutesElement) => {
+	const VERSION = import.meta.env.VITE_VERSION;
 	const { screenType } = useMobile();
-
 	return (
 		<motion.nav
 			initial={{ opacity: 0, y: 0 }}
@@ -33,7 +33,7 @@ const Navbar = ({ routes, ...rest }: RoutesElement) => {
 			>
 				<Link to="/" className="flex items-center gap-2">
 					<h3 className="text-xl font-bold pl-10">Z0</h3>
-					<Badge variant="outline">V.0.0.1</Badge>
+					<Badge variant="outline">{VERSION}</Badge>
 				</Link>
 				<NavigationMenu>
 					<NavigationMenuList>
