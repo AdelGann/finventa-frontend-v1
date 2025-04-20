@@ -7,10 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Landing = lazy(() => import("./Layouts/Landing/Landing.layout"));
 const Backoffice = lazy(() => import("./Layouts/Backoffice/Backoffice.layout"));
 
-const Home = lazy(() => import("@/views/home/Home"));
-const Login = lazy(() => import("@/views/login/Login"));
-const Register = lazy(() => import("@/views/Register/Register"));
-const NotFound = lazy(() => import("@/views/404/404"));
+const Home = lazy(() => import("@/pages/home/Home"));
+const Login = lazy(() => import("@/pages/login/Login"));
+const Register = lazy(() => import("@/pages/Register/Register"));
+const NotFound = lazy(() => import("@/pages/404/404"));
 
 export const AppRoutes = () => {
 	return (

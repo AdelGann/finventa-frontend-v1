@@ -92,7 +92,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
 				<div
 					className={`absolute bottom-0 pb-4 px-2`}
 					style={{
-						width: IS_MOBILE ? "90%" : LEFT_SIZE,
+						width: IS_MOBILE ? "92.5vw" : LEFT_SIZE,
 						transition: "all .3s ease-in-out",
 					}}
 				>
