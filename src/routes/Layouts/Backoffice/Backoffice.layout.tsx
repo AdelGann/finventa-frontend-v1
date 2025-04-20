@@ -5,6 +5,7 @@ import app_routes from "@/lib/consts/app_routes";
 
 import { useSidebarStore } from "@/store/SidebarState/SidebarState";
 import { useMobile } from "@/hooks/useMobile";
+import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
 
 const Header = lazy(() => import("@/components/layout/Header/Header"));
 const Sidebar = lazy(() => import("@/components/layout/Sidebar/Sidebar"));
@@ -64,54 +65,64 @@ const Backoffice = () => {
 	}; //TODO: Implementar sistema de carga de imagenes para el usuario
 
 	return (
-		<section
-			style={{
-				gridTemplateColumns: GRID_TEMPLATE,
-			}}
-			className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen overflow-hidden"
-		>
-			<motion.header
-				className="area-header bg-white border dark:bg-neutral-800 p-4"
-				initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
-				animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
-				transition={{ duration: 0.3, ease: "easeInOut" }}
+		<AnimatePresence initial={false} mode="wait">
+			<section
+				style={{
+					gridTemplateColumns: GRID_TEMPLATE,
+				}}
+				className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen overflow-hidden"
 			>
-				<Header profile={mocked_profile} />
-			</motion.header>
-			<AnimatePresence>
-				{(!IS_MOBILE || sidebarState.isOpen) && (
+				<motion.header
+					className="area-header bg-white border dark:bg-neutral-800 p-4"
+					initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
+					animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+				>
+					<SuspenseWrapper>
+						<Header profile={mocked_profile} />
+					</SuspenseWrapper>
+				</motion.header>
+
+				<AnimatePresence initial={false} mode="sync">
 					<motion.aside
-						key="sidebar" // importante para que AnimatePresence detecte el cambio
+						key="sidebar"
 						className={`area-aside border bg-white dark:bg-neutral-900 p-4 max-h-screen overflow-auto ${
 							IS_MOBILE && MOBILE_STYLE
 						}`}
-						initial={IS_MOBILE ? { opacity: 0 } : { width: SIDEBAR_WIDTH }}
-						animate={
-							IS_MOBILE ? { opacity: sidebarState.isOpen ? 1 : 0 } : { width: SIDEBAR_WIDTH }
-						}
-						exit={IS_MOBILE ? { opacity: 0 } : { width: 0 }}
-						transition={{ duration: 0.3, ease: "easeInOut" }}
-						style={{
-							width: IS_MOBILE ? "100%" : SIDEBAR_WIDTH,
+						initial={{
+							width: IS_MOBILE ? "100%" : "100px", // Sidebar cerrado tiene ancho mínimo al iniciar
+							opacity: IS_MOBILE ? 0 : 1, // En móviles inicia invisible
 						}}
+						animate={{
+							width: IS_MOBILE ? "100%" : sidebarState.isOpen ? SIDEBAR_WIDTH : "100px",
+							opacity: IS_MOBILE ? (sidebarState.isOpen ? 1 : 0) : 1, // Opacidad animada en móviles
+						}}
+						exit={{
+							width: IS_MOBILE ? "0px" : "100px", // Reduce el ancho al desmontarse
+							opacity: IS_MOBILE ? 0 : 1, // Mantiene opacidad en escritorio
+						}}
+						transition={{ duration: 0.3, ease: "easeInOut" }}
 					>
-						<Sidebar
-							isOpen={sidebarState.isOpen}
-							toggleSidebar={sidebarState.toggleSidebar}
-							routes={app_routes}
-						/>
+						<SuspenseWrapper>
+							<Sidebar
+								isOpen={sidebarState.isOpen}
+								toggleSidebar={sidebarState.toggleSidebar}
+								routes={app_routes}
+							/>
+						</SuspenseWrapper>
 					</motion.aside>
-				)}
-			</AnimatePresence>
-			<motion.main
-				className="area-main p-4 overflow-auto"
-				initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
-				animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
-				transition={{ duration: 0.3, ease: "easeInOut" }}
-			>
-				<Outlet />
-			</motion.main>
-		</section>
+				</AnimatePresence>
+
+				<motion.main
+					className="area-main p-4 overflow-auto"
+					initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
+					animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+				>
+					<Outlet />
+				</motion.main>
+			</section>
+		</AnimatePresence>
 	);
 };
 

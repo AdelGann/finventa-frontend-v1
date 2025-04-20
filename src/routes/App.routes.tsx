@@ -1,5 +1,6 @@
+import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
 import backoffice_routes from "@/lib/consts/backoffice.routes";
-import { Suspense, lazy, ReactNode } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Layouts
@@ -10,18 +11,6 @@ const Home = lazy(() => import("@/views/home/Home"));
 const Login = lazy(() => import("@/views/login/Login"));
 const Register = lazy(() => import("@/views/Register/Register"));
 const NotFound = lazy(() => import("@/views/404/404"));
-
-const SuspenseWrapper = ({ children }: { children: ReactNode }) => (
-	<Suspense
-		fallback={
-			<div className="flex items-center justify-center min-h-screen">
-				<div className="w-8 h-8 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
-			</div>
-		}
-	>
-		{children}
-	</Suspense>
-);
 
 export const AppRoutes = () => {
 	return (
