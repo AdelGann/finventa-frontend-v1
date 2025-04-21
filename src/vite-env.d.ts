@@ -21,10 +21,10 @@ interface SidebarState {
 	toggleSidebar: () => void;
 }
 
-
 interface RoutesProps {
 	routes: Route[];
 }
+
 interface Route {
 	path: string;
 	name: string;
@@ -34,4 +34,34 @@ interface Route {
 interface SidebarRoutes {
 	routes: Record<string, Route[]>;
 }
+
 interface SidebarProps extends SidebarState, SidebarRoutes {}
+
+type month =
+	| "January"
+	| "February"
+	| "March"
+	| "April"
+	| "May"
+	| "June"
+	| "July"
+	| "August"
+	| "September"
+	| "October"
+	| "November"
+	| "December";
+
+type MonthType = typeof month;
+type day = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
+
+// shadcn chart config
+interface MonthlyChartData {
+	month: month;
+	values: Record<string, number>;
+}
+type ChartData = Record<string, number | number>;
+
+interface DailyChartData {
+	day: day;
+	values: Record<string, number>;
+}
