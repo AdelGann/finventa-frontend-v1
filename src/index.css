@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "tailwindcss-scrollbar";
 
 @custom-variant dark (&:is(.dark *));
 html {
@@ -122,7 +123,7 @@ html {
 }
 
 @layer utilities {
-	.grid-areas-backoffice {
+  .grid-areas-backoffice {
 		grid-template-areas:
 			"aside header header"
 			"aside main main"

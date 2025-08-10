@@ -3,10 +3,22 @@ html {
   scrollbar-gutter: stable;
 }
 
+
+  .scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
 /* BASE SCROLLBAR STYLES */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 1.5px;
   height: 6px;
+}
+::-webkit-scrollbar:hover {
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
