@@ -4,8 +4,8 @@ import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Layouts
-const Landing = lazy(() => import("./Layouts/Landing/Landing.layout"));
-const Backoffice = lazy(() => import("./Layouts/Backoffice/Backoffice.layout"));
+const Landing = lazy(() => import("./layouts/Landing/Landing.layout"));
+const Backoffice = lazy(() => import("./layouts/Backoffice/Backoffice.layout"));
 
 const Home = lazy(() => import("@/pages/home/Home"));
 const Login = lazy(() => import("@/pages/login/Login"));
@@ -13,65 +13,65 @@ const Register = lazy(() => import("@/pages/Register/Register"));
 const NotFound = lazy(() => import("@/pages/404/404"));
 
 export const AppRoutes = () => {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					element={
-						<SuspenseWrapper>
-							<Landing />
-						</SuspenseWrapper>
-					}
-				>
-					<Route
-						path="/"
-						element={
-							<SuspenseWrapper>
-								<Home />
-							</SuspenseWrapper>
-						}
-					/>
-					<Route
-						path="*"
-						element={
-							<SuspenseWrapper>
-								<NotFound />
-							</SuspenseWrapper>
-						}
-					/>
-				</Route>
-				<Route
-					path="/login"
-					element={
-						<SuspenseWrapper>
-							<Login />
-						</SuspenseWrapper>
-					}
-				/>
-				<Route
-					path="/register"
-					element={
-						<SuspenseWrapper>
-							<Register />
-						</SuspenseWrapper>
-					}
-				/>
-				<Route
-					element={
-						<SuspenseWrapper>
-							<Backoffice />
-						</SuspenseWrapper>
-					}
-				>
-					{backoffice_routes.map((item, key) => (
-						<Route
-							key={key}
-							element={<SuspenseWrapper>{item.component}</SuspenseWrapper>}
-							path={item.path}
-						/>
-					))}
-				</Route>
-			</Routes>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={
+            <SuspenseWrapper>
+              <Landing />
+            </SuspenseWrapper>
+          }
+        >
+          <Route
+            path="/"
+            element={
+              <SuspenseWrapper>
+                <Home />
+              </SuspenseWrapper>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <SuspenseWrapper>
+                <NotFound />
+              </SuspenseWrapper>
+            }
+          />
+        </Route>
+        <Route
+          path="/login"
+          element={
+            <SuspenseWrapper>
+              <Login />
+            </SuspenseWrapper>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <SuspenseWrapper>
+              <Register />
+            </SuspenseWrapper>
+          }
+        />
+        <Route
+          element={
+            <SuspenseWrapper>
+              <Backoffice />
+            </SuspenseWrapper>
+          }
+        >
+          {backoffice_routes.map((item, key) => (
+            <Route
+              key={key}
+              element={<SuspenseWrapper>{item.component}</SuspenseWrapper>}
+              path={item.path}
+            />
+          ))}
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 };

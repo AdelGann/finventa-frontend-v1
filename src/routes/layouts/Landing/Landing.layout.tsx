@@ -18,21 +18,21 @@ const Footer = lazy(() => import("@/components/layout/Footer/Footer"));
  * @returns {JSX.Element} - Estructura del layout con Navbar, contenido principal y Footer
  */
 export const Landing = () => {
-	return (
-		<div className="min-h-screen flex flex-col">
-			<div className="fixed top-0 left-0 w-full z-30">
-				<Navbar routes={landing_routes} />
-			</div>
-			<BackgroundDots numDots={30}>
-				<section className="flex-grow p-0 lg:p-10 z-0">
-					<Outlet />
-				</section>
-			</BackgroundDots>
-			<div className="fixed bottom-0 left-0 w-full z-30">
-				<Footer routes={landing_routes} />
-			</div>
-		</div>
-	);
+  return (
+    <div className="min-h-screen flex flex-col">
+      <div className="fixed top-0 left-0 w-full z-30">
+        <Navbar routes={landing_routes} />
+      </div>
+      <BackgroundDots numDots={30}>
+        <section className="flex-grow p-0 lg:p-10 z-0">
+          <Outlet />
+        </section>
+      </BackgroundDots>
+      <div className="fixed bottom-0 left-0 w-full z-30">
+        <Footer routes={landing_routes} />
+      </div>
+    </div>
+  );
 };
 
 export default Landing;
