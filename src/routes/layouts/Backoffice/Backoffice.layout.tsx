@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
-import app_routes from "@/lib/consts/app_routes";
+import app_routes from "@/lib/routes/app_routes";
 
 import { useSidebarStore } from "@/store/SidebarState/SidebarState";
 import { useMobile } from "@/hooks/useMobile";
