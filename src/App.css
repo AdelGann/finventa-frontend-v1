@@ -1,3 +1,57 @@
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+/* BASE SCROLLBAR STYLES */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  min-height: 50px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  min-width: 50px;
+}
+
+/* LIGHT THEME */
+.light ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.light ::-webkit-scrollbar-thumb:hover,
+.light ::-webkit-scrollbar-thumb:active {
+  background: #555;
+}
+
+/* DARK THEME */
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:active {
+  background: #666;
+}
+/* 
+  ANIMATIONS
+*/
 ::view-transition-group(root) {
   animation-duration: 0.7s;
   animation-timing-function: var(--expo-out);
