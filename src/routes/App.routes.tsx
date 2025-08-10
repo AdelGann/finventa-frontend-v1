@@ -8,7 +8,7 @@ const Landing = lazy(() => import("./layouts/Landing/Landing.layout"));
 const Backoffice = lazy(() => import("./layouts/Backoffice/Backoffice.layout"));
 
 const Home = lazy(() => import("@/pages/home/Home"));
-const Login = lazy(() => import("@/pages/login/Login"));
+const Login = lazy(() => import("@/pages/Login/Login"));
 const Register = lazy(() => import("@/pages/Register/Register"));
 const NotFound = lazy(() => import("@/pages/404/404"));
 
