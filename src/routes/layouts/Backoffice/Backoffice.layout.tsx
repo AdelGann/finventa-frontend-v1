@@ -85,7 +85,7 @@ const Backoffice = () => {
         <AnimatePresence initial={false} mode="sync">
           <motion.aside
             key="sidebar"
-            className={`area-aside border bg-white dark:bg-neutral-900 p-4 max-h-screen overflow-auto ${IS_MOBILE && MOBILE_STYLE
+            className={`area-aside border bg-white dark:bg-neutral-900 p-4 h-screen ${IS_MOBILE && MOBILE_STYLE
               }`}
             initial={{
               width: IS_MOBILE ? "100%" : "100px", // Sidebar cerrado tiene ancho mínimo al iniciar

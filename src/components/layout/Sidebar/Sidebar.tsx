@@ -54,39 +54,42 @@ const Sidebar = ({ ...props }: SidebarProps) => {
           )}
         </div>
         <hr className="my-6" />
-        <div className="flex flex-col">
-          {Object.entries(routes).map(([key, routeGroup]) => (
-            <motion.div
-              key={key}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {isOpen && (
-                <h4 className="text-sm font-semibold text-gray-500 uppercase px-3 py-2">{key}</h4>
-              )}
-              {routeGroup.map((item, index) => (
-                <Link
-                  to={item.path}
-                  key={index}
-                  className={`p-3 hover:bg-accent rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
-                    }`}
-                >
-                  {item.icon && <>{item.icon}</>}
-                  <motion.p
-                    variants={textVariants}
-                    initial="closed"
-                    animate={isOpen ? "open" : "closed"}
-                    exit="closed"
-                    className="overflow-hidden whitespace-nowrap"
+        <div className="max-h-[70vh] overflow-y-auto w-full pr-0 scrollbar-none">
+          <div className="flex flex-col">
+            {Object.entries(routes).map(([key, routeGroup]) => (
+              <motion.div
+                layout
+                key={key}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isOpen && (
+                  <h4 className="text-sm font-semibold text-gray-500 uppercase px-3 py-2">{key}</h4>
+                )}
+                {routeGroup.map((item, index) => (
+                  <Link
+                    to={item.path}
+                    key={index}
+                    className={`p-3 hover:bg-accent rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
+                      }`}
                   >
-                    {item.name}
-                  </motion.p>
-                </Link>
-              ))}
-            </motion.div>
-          ))}
+                    {item.icon && <>{item.icon}</>}
+                    <motion.p
+                      variants={textVariants}
+                      initial="closed"
+                      animate={isOpen ? "open" : "closed"}
+                      exit="closed"
+                      className="overflow-hidden whitespace-nowrap"
+                    >
+                      {item.name}
+                    </motion.p>
+                  </Link>
+                ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
         <div
           className={`absolute bottom-0 pb-4 px-2`}
