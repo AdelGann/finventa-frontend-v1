@@ -60,7 +60,6 @@ export function ThemeProvider({
         return;
       }
 
-      // Usa startViewTransition para una transición visual suave
       document.startViewTransition(switchTheme);
     },
   };
