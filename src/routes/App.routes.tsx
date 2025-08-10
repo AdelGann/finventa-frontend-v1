@@ -1,5 +1,5 @@
 import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
-import backoffice_routes from "@/lib/consts/backoffice.routes";
+import backoffice_routes from "@/lib/routes/backoffice.routes";
 import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
