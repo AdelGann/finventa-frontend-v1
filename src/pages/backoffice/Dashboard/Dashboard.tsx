@@ -39,9 +39,8 @@ const Dashboard = () => {
               </SuspenseWrapper>
             </TabsContent>
           </Tabs>
-          <div className="grid grid-cols-2">
-            <Charts chartState="Monthly" />
-            <Charts chartState="Daily" />
+          <div className="h-[40vh]">
+            <Charts />
           </div>
         </div>
       </div>

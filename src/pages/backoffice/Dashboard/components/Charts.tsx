@@ -1,3 +1,4 @@
+import SelectField from "@/components/custom/SelectField";
 import {
   ChartContainer,
   ChartLegend,
@@ -5,6 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useState } from "react";
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 //import SelectField from "@/components/custom/SelectField";
@@ -12,7 +14,8 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 type ChartState = "Monthly" | "Daily";
 
-const Charts = ({ chartState }: { chartState: ChartState }) => {
+const Charts = () => {
+  const [chartState, setChartState] = useState<ChartState>("Monthly");
   //console.log(chartState);
   return (
     <div className="p-2 m-5 bg:white dark:bg-[#161616] shadow dark:shadow-[#1b1b1b] rounded">
@@ -23,7 +26,7 @@ const Charts = ({ chartState }: { chartState: ChartState }) => {
         {chartState === "Monthly" && <MonthlyChart />}
         {chartState === "Daily" && <DailyChart />}
       </div>
-      {/*<div className="py-3">
+      <div className="py-3">
         <SelectField
           onChange={(e) => setChartState(e.value as ChartState)}
           name="aa"
@@ -34,7 +37,7 @@ const Charts = ({ chartState }: { chartState: ChartState }) => {
             { name: "DAILY", value: "Daily" },
           ]}
         />
-      </div>*/}
+      </div>
     </div>
   );
 };
@@ -43,7 +46,7 @@ export default Charts;
 const MonthlyChart = () => {
   return (
     <div>
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+      <ChartContainer config={chartConfig} className="h-[40vh] min-h-[150px] w-full">
         <BarChart accessibilityLayer data={monthlyChartData}>
           <CartesianGrid vertical={false} />
           <XAxis
@@ -66,7 +69,7 @@ const MonthlyChart = () => {
 const DailyChart = () => {
   return (
     <div>
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+      <ChartContainer config={chartConfig} className="h-[40vh] min-h-[150px] w-full">
         <BarChart accessibilityLayer data={dailyChartData}>
           <CartesianGrid vertical={false} />
           <XAxis
