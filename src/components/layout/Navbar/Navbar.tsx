@@ -1,4 +1,4 @@
-import { ModeToggle } from "@/components/custom/Mode-Toggle";
+import { ModeToggle } from "@/components/ui/Mode-Toggle";
 import { Badge } from "@/components/ui/badge";
 import {
 	NavigationMenu,

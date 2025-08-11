@@ -1,4 +1,4 @@
-import { ModeToggle } from "@/components/custom/Mode-Toggle";
+import { ModeToggle } from "@/components/ui/Mode-Toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
