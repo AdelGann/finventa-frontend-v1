@@ -15,10 +15,10 @@ import { useMobile } from "@/hooks/useMobile";
 import { motion } from "framer-motion";
 import { Menu } from "@/assets/icons/Menu";
 import { Link } from "react-router-dom";
+import { VERSION } from "@/lib/consts/variables";
 
 interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps {}
 const Navbar = ({ routes, ...rest }: RoutesElement) => {
-	const VERSION = import.meta.env.VITE_VERSION;
 	const { screenType } = useMobile();
 	return (
 		<motion.nav

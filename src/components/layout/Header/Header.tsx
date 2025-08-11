@@ -14,11 +14,10 @@ import { useSidebarStore } from "@/store/SidebarState/SidebarState";
 import { Menu } from "lucide-react";
 
 const Header = ({ profile }: { profile?: { username: string; avatar: string } }) => {
-	const { screenType } = useMobile(); // 3sm is the breakpoint;
+	const { IS_MOBILE } = useMobile(); // 3sm is the breakpoint;
 	const sidebarState = useSidebarStore((state) => state);
 
 	// VARIABLES
-	const IS_MOBILE = ["3sm", "2sm", "sm"].includes(screenType);
 	const DESKTOP_STYLE = "flex justify-end items-center gap-2";
 	const MOBILE_STYLE = "flex justify-between items-center gap-2";
 
