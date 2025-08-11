@@ -38,7 +38,9 @@ export const useMobile = () => {
 		if (width >= 2560) return "4xl";
 		return "unknown";
 	};
-
+	
+	const IS_MOBILE = ["3sm", "2sm", "sm"].includes(screenType)
+	
 	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
@@ -57,5 +59,6 @@ export const useMobile = () => {
 
 	return {
 		screenType,
+		IS_MOBILE,
 	};
 };
