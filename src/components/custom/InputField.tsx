@@ -9,7 +9,7 @@ interface InputFieldProps extends React.ComponentProps<'input'> {
 export const InputField = ({ label, labelClassName, ...rest }: InputFieldProps) => {
   return (
     <>
-      <Label children={label} className={labelClassName} />
+      {label && <Label children={label} className={labelClassName} />}
       <Input {...rest} />
     </>
   );
