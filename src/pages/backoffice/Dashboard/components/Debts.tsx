@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Card = lazy(() => import("../components/Card"));
+const Card = lazy(() => import("./Card"));
 
 export const Debts = () => {
   const TOOLTIP_DESCRIPTION = "Percentage decrease compared to the previous period";
