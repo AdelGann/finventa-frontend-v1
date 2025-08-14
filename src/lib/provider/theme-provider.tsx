@@ -50,9 +50,17 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (newTheme: Theme) => {
+      if (newTheme === theme) return;
+
       const switchTheme = () => {
+        document.body.classList.add("theme-transition");
+
         localStorage.setItem(storageKey, newTheme);
         setTheme(newTheme);
+
+        setTimeout(() => {
+          document.body.classList.remove("theme-transition");
+        }, 700);
       };
 
       if (!document.startViewTransition) {
@@ -63,7 +71,6 @@ export function ThemeProvider({
       document.startViewTransition(switchTheme);
     },
   };
-
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       {children}

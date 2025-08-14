@@ -103,42 +103,39 @@ html {
 /* ROUTE CHANGE ANIMATION */ 
 
 ::view-transition-group(content) {
-  animation-duration: 0.7s;
-  animation-timing-function: var(--expo-out, cubic-bezier(0.16, 1, 0.3, 1));
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 
-/* Nuevo contenido entra desde la esquina superior izquierda */
 ::view-transition-new(content) {
-  animation-name: reveal-diagonal;
+  animation-name: content-fade-in;
   animation-fill-mode: both;
-  z-index: 1;
 }
 
-/* Viejo contenido se desvanece gradualmente */
 ::view-transition-old(content) {
-  animation-name: fade-out-diagonal;
+  animation-name: content-fade-out;
   animation-fill-mode: both;
   z-index: 0;
 }
 
-@keyframes reveal-diagonal {
+@keyframes content-fade-in {
   from {
-    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
     opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes fade-out-diagonal {
+@keyframes content-fade-out {
   from {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     opacity: 1;
+    transform: translateY(0);
   }
   to {
-    clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
     opacity: 0;
+    transform: translateY(10px);
   }
 }
