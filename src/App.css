@@ -4,13 +4,13 @@ html {
 }
 
 
-  .scrollbar-none {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
+.scrollbar-none {
+ -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
 
 /* BASE SCROLLBAR STYLES */
 ::-webkit-scrollbar {
@@ -97,5 +97,48 @@ html {
   }
   to {
     clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
+  }
+}
+
+/* ROUTE CHANGE ANIMATION */ 
+
+::view-transition-group(content) {
+  animation-duration: 0.7s;
+  animation-timing-function: var(--expo-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+/* Nuevo contenido entra desde la esquina superior izquierda */
+::view-transition-new(content) {
+  animation-name: reveal-diagonal;
+  animation-fill-mode: both;
+  z-index: 1;
+}
+
+/* Viejo contenido se desvanece gradualmente */
+::view-transition-old(content) {
+  animation-name: fade-out-diagonal;
+  animation-fill-mode: both;
+  z-index: 0;
+}
+
+@keyframes reveal-diagonal {
+  from {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+    opacity: 0;
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-diagonal {
+  from {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+  to {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+    opacity: 0;
   }
 }
