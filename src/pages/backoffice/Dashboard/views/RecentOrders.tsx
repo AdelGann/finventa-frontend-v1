@@ -11,7 +11,7 @@ export type Payment = {
 const RecentOrders = () => {
   return (
     <>
-      <div className="p-2 m-5 bg:white dark:bg-[#262633] shadow dark:shadow-[#20202a] border rounded">
+      <div className="p-2 m-5 bg:white dark:bg-[#262633] border rounded-sm">
         <div className="bg-opacity-50 dark:bg-opacity-50 rounded-lg">
           <div className="p-1">
             <h3 className="uppercase font-bold">Recent Orders</h3>

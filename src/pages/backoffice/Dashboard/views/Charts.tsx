@@ -9,10 +9,11 @@ const Charts = () => {
   const [chartState, setChartState] = useState<ChartState>("Monthly");
   return (
     <SuspenseWrapper>
-      <div className="p-2 m-5 bg:white dark:bg-[#262633] shadow dark:shadow-[#20202a] border rounded">
-        <div className="bg-opacity-50 dark:bg-opacity-50 rounded-lg">          <div className="p-1">
-          <h3 className="uppercase font-bold">{chartState} financial summary</h3>
-        </div>
+      <div className="p-2 m-5 bg:white dark:bg-[#262633] border rounded-sm">
+        <div className="bg-opacity-50 dark:bg-opacity-50 rounded-lg">
+          <div className="p-1">
+            <h3 className="uppercase font-bold">{chartState} financial summary</h3>
+          </div>
           {chartState === "Monthly" &&
 
             <MonthlyChart />

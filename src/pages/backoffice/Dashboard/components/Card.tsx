@@ -14,7 +14,7 @@ const Card = ({
   color?: string;
   description?: string;
 }) => (
-  <div className="p-2 max-w-[700px] bg-white dark:bg-[#262633] shadow dark:shadow-[#20202a] border rounded">
+  <div className="p-2 max-w-[700px] bg-white dark:bg-[#262633] border rounded-sm">
     <div className="p-2 rounded-sm">
       <label className="text-sm font-semibold text-gray-500 dark:text-white uppercase block mb-2">
         {title}
