@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+          "bg-[#333344] text-white shadow-xs hover:bg-[#2a2a3a]",
         destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-[#EF4444] text-white shadow-xs hover:bg-[#DC2626] focus-visible:ring-[#DC2626]/20 dark:focus-visible:ring-[#DC2626]/40",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-[#333344] bg-transparent text-[#333344] shadow-xs hover:bg-[#F3F4F6]",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-[#F3F4F6] text-[#333344] shadow-xs hover:bg-[#E5E7EB]",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
-        header: "shadow-xs bg-input/0 text-white hover:bg-input/30",
+          "text-[#333344] hover:bg-[#F3F4F6]",
+        link: "text-[#333344] underline-offset-4 hover:underline",
+        header: "shadow-xs bg-input/0 text-white hover:bg-input/30", // intacto
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
