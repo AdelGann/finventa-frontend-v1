@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/ui/Mode-Toggle";
-import { LogOut, UserRound, Users } from 'lucide-react'
+import { ArrowBigDown, ArrowDown, ArrowDown01, Clock, LogOut, NetworkIcon, UserRound, Users } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,32 +23,49 @@ const Header = ({ profile }: { profile?: { username: string; avatar: string } })
   const MOBILE_STYLE = "flex justify-between items-center gap-2";
 
   return (
-    <div className={`${IS_MOBILE ? MOBILE_STYLE : DESKTOP_STYLE} bg-[#1f1f2b] dark:bg-[#47455a] p-2`}>
+    <div className={`${IS_MOBILE ? MOBILE_STYLE : DESKTOP_STYLE} bg-[#333344] border border-[#444456] dark:bg-[#47455a] p-2 mb-5`}>
       {IS_MOBILE && (
         <Button variant='header' className="cursor-pointer" onClick={sidebarState.toggleSidebar}>
           <Menu />
         </Button>
       )}
-      <div className="flex gap-2 items-center">
-        <ModeToggle variant="header" />
-        <DropdownMenu>
-          <DropdownMenuTrigger className="flex gap-2 items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
-            {profile?.username}
-            <Avatar>
-              <AvatarImage src={profile?.avatar} />
-              <AvatarFallback className="text-black dark:text-white">{profile?.username.slice(0, 2).toUpperCase() || "UK"}</AvatarFallback>
-            </Avatar>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer"><UserRound /> Perfil</DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer"><Users /> Organización</DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer"><LogOut /> Cerrar Sesión</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <div className="flex gap-2 items-center justify-between w-full px-5">
+        {!IS_MOBILE && <div className="px-2 flex gap-2 items-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex gap-2 font-semibold items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
+              Adel's Organization <NetworkIcon />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent >
+              <DropdownMenuLabel className="flex gap-2 items-center justify-center">ORG'S <NetworkIcon /></DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="cursor-pointer">Organization 1</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">Organization 2</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">Organization 3</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>}
+        <div className="px-2 flex gap-2 items-center">
+          <ModeToggle variant="header" />
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex gap-2 items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
+              {profile?.username}
+              <Avatar>
+                <AvatarImage src={profile?.avatar} />
+                <AvatarFallback className="text-black dark:text-white">{profile?.username.slice(0, 2).toUpperCase() || "UK"}</AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="cursor-pointer"><UserRound /> Perfil</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer"><Users /> Organización</DropdownMenuItem>
+              {IS_MOBILE && <DropdownMenuItem className="cursor-pointer"><NetworkIcon /> Seleccionar Organización</DropdownMenuItem>}
+              <DropdownMenuItem className="cursor-pointer"><LogOut /> Cerrar Sesión</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
-    </div>
+    </div >
   );
 };
 
