@@ -22,7 +22,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
   }, [IS_MOBILE])
 
   return (
-    <section className={`p-4 border bg-white dark:bg-[#1b1b25] h-screen`} >
+    <section className={`p-4 border bg-[#f7f7f7] dark:bg-[#1b1b25] h-screen`} >
       {!IS_MOBILE && (
         <div className="absolute z-50">
           <Button
