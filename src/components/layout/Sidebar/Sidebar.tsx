@@ -31,7 +31,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
               transition: "all .3s ease-in-out",
               transform: `rotate(${isOpen ? 180 : 0}deg)`,
             }}
-            className={`relative top-[55px] rounded-full shadow cursor-pointer text-white dark:text-black`}
+            className={`relative top-[55px] rounded-full shadow cursor-pointer text-white `}
             onClick={toggleSidebar}
           >
             <ArrowRight />
@@ -84,7 +84,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
                           return;
                         }
                       }}
-                      className={`p-3 hover:bg-[#333344]/80 hover:text-white rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
+                      className={`p-3 hover:bg-input/80 hover:text-black dark:hover:text-white rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
                         }`}
                     >
                       {item.icon && <>{item.icon}</>}
