@@ -32,7 +32,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
               transition: "all .3s ease-in-out",
               transform: `rotate(${isOpen ? 180 : 0}deg)`,
             }}
-            className={`relative top-[55px] rounded-full shadow cursor-pointer`}
+            className={`relative top-[55px] rounded-full shadow cursor-pointer text-white`}
             onClick={toggleSidebar}
           >
             <ArrowRight />
@@ -54,7 +54,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
           </div>
           {IS_MOBILE && (
             <>
-              <Button className="rounded-full shadow cursor-pointer" onClick={toggleSidebar}>
+              <Button className="bg-[#75768a] dark:text-white rounded-full shadow cursor-pointer" onClick={toggleSidebar}>
                 <ArrowLeft />
               </Button>
             </>

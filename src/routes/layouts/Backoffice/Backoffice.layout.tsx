@@ -72,7 +72,7 @@ const Backoffice = () => {
         className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen overflow-hidden"
       >
         <motion.header
-          className="area-header bg-white border dark:bg-[#111111] p-4"
+          className="area-header"
           initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
           animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
