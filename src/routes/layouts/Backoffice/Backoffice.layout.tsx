@@ -117,7 +117,7 @@ const Backoffice = () => {
           animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div style={{ viewTransitionName: "content" }} className="min-h-full">
+          <div id='content' style={{ viewTransitionName: "content" }} className="min-h-full">
             <Outlet />
           </div>
         </motion.main>

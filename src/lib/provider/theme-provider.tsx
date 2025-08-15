@@ -53,14 +53,21 @@ export function ThemeProvider({
       if (newTheme === theme) return;
 
       const switchTheme = () => {
-        document.body.classList.add("theme-transition");
+        const contentEl = document.getElementById('content');
+
+        if (contentEl) {
+          contentEl.style.viewTransitionName = "";
+        }
 
         localStorage.setItem(storageKey, newTheme);
         setTheme(newTheme);
 
         setTimeout(() => {
-          document.body.classList.remove("theme-transition");
-        }, 700);
+          if (contentEl) {
+            contentEl.style.viewTransitionName = "content";
+          }
+
+        }, 500);
       };
 
       if (!document.startViewTransition) {
