@@ -11,7 +11,7 @@ const Statistics = () => {
     <>
       <Tabs
         defaultValue="incomes"
-        tabListClassName="w-[90vw] sm:w-[50vw] mx-auto"
+        tabListClassName="w-[90vw] sm:w-[50vw] mx-auto dark:bg-[#262633] shadow dark:shadow-[#20202a]"
         tabsTrigger={tab_trigger}
         tabsContent={tabs_content}
       />

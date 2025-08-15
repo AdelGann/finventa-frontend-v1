@@ -13,7 +13,6 @@ const Sidebar = ({ ...props }: SidebarProps) => {
   const { isOpen, toggleSidebar, routes } = props;
   const { IS_MOBILE } = useMobile(); // 3sm is the breakpoint;
   const LEFT_SIZE = isOpen ? "215px" : "65px";
-
   // Handler para evitar que cuando se inicie la app el sidebar esté abierto
   useEffect(() => {
     if (IS_MOBILE) {
@@ -23,7 +22,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
   }, [IS_MOBILE])
 
   return (
-    <section>
+    <section className={`p-4 border bg-white dark:bg-[#1b1b25] h-screen`} >
       {!IS_MOBILE && (
         <div className="absolute z-50">
           <Button
@@ -32,7 +31,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
               transition: "all .3s ease-in-out",
               transform: `rotate(${isOpen ? 180 : 0}deg)`,
             }}
-            className={`relative top-[55px] rounded-full shadow cursor-pointer text-white`}
+            className={`relative top-[55px] rounded-full shadow cursor-pointer text-white dark:text-black`}
             onClick={toggleSidebar}
           >
             <ArrowRight />
@@ -41,7 +40,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
       )}
       <div className="px-1">
         <div className={`${IS_MOBILE && "flex justify-between w-full items-center"}`}>
-          <div className={`flex items-center gap-2 justify-center pt-5`}>
+          <div className={`flex items-center gap-2 justify-center pt-2`}>
             <h3 className="text-2xl font-bold pl-2">Z0</h3>
             <motion.div
               className="overflow-hidden"
@@ -60,9 +59,8 @@ const Sidebar = ({ ...props }: SidebarProps) => {
             </>
           )}
         </div>
-        <hr className="my-[21px]" />
-        <div className="py-2">
-          <ScrollArea className="h-[70vh] rounded-md border">
+        <div className="py-6">
+          <ScrollArea className="h-[80vh]">
             <div className="flex flex-col">
               {Object.entries(routes).map(([key, routeGroup]) => (
                 <motion.div
@@ -86,7 +84,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
                           return;
                         }
                       }}
-                      className={`p-3 hover:bg-accent rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
+                      className={`p-3 hover:bg-[#333344]/80 hover:text-white rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
                         }`}
                     >
                       {item.icon && <>{item.icon}</>}

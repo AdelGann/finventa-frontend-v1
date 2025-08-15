@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/ui/Mode-Toggle";
-import { ArrowBigDown, ArrowDown, ArrowDown01, Clock, LogOut, NetworkIcon, UserRound, Users } from 'lucide-react'
+import { LogOut, NetworkIcon, UserRound, Users } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,13 +23,13 @@ const Header = ({ profile }: { profile?: { username: string; avatar: string } })
   const MOBILE_STYLE = "flex justify-between items-center gap-2";
 
   return (
-    <div className={`${IS_MOBILE ? MOBILE_STYLE : DESKTOP_STYLE} bg-[#333344] border border-[#444456] dark:bg-[#47455a] p-2 mb-5`}>
+    <div className={`${IS_MOBILE ? MOBILE_STYLE : DESKTOP_STYLE} bg-[#333344] border border-[#444456] dark:bg-[#242432] p-2`}>
       {IS_MOBILE && (
         <Button variant='header' className="cursor-pointer" onClick={sidebarState.toggleSidebar}>
           <Menu />
         </Button>
       )}
-      <div className="flex gap-2 items-center justify-between w-full px-5">
+      <div className={`flex gap-2 items-center w-full px-5 ${IS_MOBILE ? "justify-end" : "justify-between"}`}>
         {!IS_MOBILE && <div className="px-2 flex gap-2 items-center">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex gap-2 font-semibold items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
@@ -47,7 +47,7 @@ const Header = ({ profile }: { profile?: { username: string; avatar: string } })
         <div className="px-2 flex gap-2 items-center">
           <ModeToggle variant="header" />
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex gap-2 items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
+            <DropdownMenuTrigger className="flex gap-2 items-center p-3 text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer text-sm lg:text-md">
               {profile?.username}
               <Avatar>
                 <AvatarImage src={profile?.avatar} />
