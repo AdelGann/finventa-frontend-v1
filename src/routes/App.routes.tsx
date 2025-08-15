@@ -1,5 +1,5 @@
 import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
-import backoffice_routes from "@/lib/routes/backoffice.routes";
+import backoffice_routes, { RouteProps } from "@/lib/routes/backoffice.routes";
 import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -63,13 +63,24 @@ export const AppRoutes = () => {
             </SuspenseWrapper>
           }
         >
-          {backoffice_routes.map((item, key) => (
-            <Route
-              key={key}
-              element={<SuspenseWrapper>{item.component}</SuspenseWrapper>}
-              path={item.path}
-            />
-          ))}
+          {backoffice_routes.map((item: RouteProps, key) => {
+            if (item.layout) return (
+              <Route
+                key={key}
+                element={item.layout}
+                path={item.path}
+              >
+                <Route index element={item.component} />
+              </Route>
+            )
+            else return (
+              <Route
+                key={key}
+                element={item.component}
+                path={item.path}
+              />
+            )
+          })}
         </Route>
       </Routes>
     </BrowserRouter>
