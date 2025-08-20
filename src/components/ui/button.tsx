@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost:
           "text-[#333344] hover:bg-[#F3F4F6]",
         link: "text-[#333344] underline-offset-4 hover:underline",
-        header: "shadow-xs bg-input/0 text-black dark:text-white hover:bg-input/30", // intacto
+        header: "shadow-xs bg-input/0 text-black dark:text-white dark:bg-input/5 dark:hover:bg-input/30 hover:bg-input/30", // intacto
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

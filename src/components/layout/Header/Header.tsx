@@ -32,7 +32,7 @@ const Header = ({ profile }: { profile?: { username: string; avatar: string } })
       <div className={`flex gap-2 items-center w-full px-5 ${IS_MOBILE ? "justify-end" : "justify-between"}`}>
         {!IS_MOBILE && <div className="px-2 flex gap-2 items-center">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex gap-2 font-semibold items-center p-3 text-black dark:text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer">
+            <DropdownMenuTrigger className="flex gap-2 items-center p-3 transition-all rounded-sm cursor-pointer text-sm lg:text-md shadow-xs bg-input/0 text-black dark:text-white hover:bg-input/30 dark:hover:bg-input/50 dark:bg-input/5">
               Adel's Organization <NetworkIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent >
@@ -47,7 +47,7 @@ const Header = ({ profile }: { profile?: { username: string; avatar: string } })
         <div className="px-2 flex gap-2 items-center">
           <ModeToggle variant="header" />
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex gap-2 items-center p-3 text-black dark:text-white hover:bg-input/30 transition-all rounded-sm cursor-pointer text-sm lg:text-md">
+            <DropdownMenuTrigger className="flex gap-2 items-center p-3 transition-all rounded-sm cursor-pointer text-sm lg:text-md shadow-xs bg-input/0 text-black dark:text-white hover:bg-input/30 dark:hover:bg-input/50 dark:bg-input/5">
               {profile?.username}
               <Avatar>
                 <AvatarImage src={profile?.avatar} />
