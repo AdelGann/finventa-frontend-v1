@@ -2,7 +2,8 @@ import { lazy } from "react";
 import { Content } from "@/routes/layouts/Content/Content.layout";
 
 const Dashboard = lazy(() => import("@/pages/backoffice/Dashboard/Dashboard"));
-const Employees = lazy(() => import("@/pages/backoffice/Employees/Employees"));
+const Company = lazy(() => import("@/pages/backoffice/Company/Company"));
+//const Employees = lazy(() => import("@/pages/backoffice/Employees/Employees"));
 
 export interface RouteProps {
   path: string;
@@ -12,6 +13,7 @@ export interface RouteProps {
 
 const backoffice_routes: RouteProps[] = [
   { path: "/dashboard", component: <Dashboard /> },
-  { path: "/employees", component: <Employees />, layout: <Content /> },
+  //{ path: "/employees", component: <Employees />, layout: <Content /> },
+  { path: "/Company", component: <Company />, layout: <Content /> }
 ];
 export default backoffice_routes;
