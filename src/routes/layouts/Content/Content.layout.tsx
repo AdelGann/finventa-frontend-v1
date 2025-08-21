@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 export const Content = () => {
   return (
     <div>
-      <div className="sm:p-2 sm:m-5 bg:white dark:bg-[#262633] border rounded-sm">
+      <div className="sm:px-2 sm:pb-2 sm:mx-5 sm:mb-5 bg:white dark:bg-[#262633] border rounded-sm">
         <div className="bg-opacity-50 dark:bg-opacity-50 rounded-lg">
           <AnimatePresence>
             <motion.section
