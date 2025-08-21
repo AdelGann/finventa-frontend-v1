@@ -14,6 +14,6 @@ export interface RouteProps {
 const backoffice_routes: RouteProps[] = [
   { path: "/dashboard", component: <Dashboard /> },
   //{ path: "/employees", component: <Employees />, layout: <Content /> },
-  { path: "/Company", component: <Company />, layout: <Content /> }
+  { path: "/company", component: <Company />, layout: <Content /> }
 ];
 export default backoffice_routes;
