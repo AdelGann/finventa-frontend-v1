@@ -15,11 +15,11 @@ const Sidebar = ({ ...props }: SidebarProps) => {
   const LEFT_SIZE = isOpen ? "215px" : "65px";
   // Handler para evitar que cuando se inicie la app el sidebar esté abierto
   useEffect(() => {
-    if (IS_MOBILE) {
+    if (IS_MOBILE && isOpen) {
       toggleSidebar();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [IS_MOBILE])
+  }, [IS_MOBILE, isOpen]);
 
   return (
     <section className={`p-4 border bg-[#f7f7f7] dark:bg-[#1b1b25] h-screen`} >
