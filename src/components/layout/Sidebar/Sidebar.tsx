@@ -19,7 +19,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
       toggleSidebar();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [IS_MOBILE, isOpen]);
+  }, [IS_MOBILE]);
 
   return (
     <section className={`p-4 border bg-[#f7f7f7] dark:bg-[#1b1b25] h-screen`} >
