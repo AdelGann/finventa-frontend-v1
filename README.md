@@ -1,3 +1,7 @@
+Este proyecto está protegido por una licencia personalizada.  
+No se permite su uso comercial, redistribución ni modificación sin autorización expresa.  
+Consulta el archivo LICENSE.txt para más detalles.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
