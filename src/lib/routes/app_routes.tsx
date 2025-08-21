@@ -1,20 +1,17 @@
-import { Gauge, User, Settings, UserCog, UserSearch, Package, Receipt, BuildingIcon } from "lucide-react";
+import { Gauge, Settings, UserCog, Package, Receipt, BuildingIcon, BarChart4Icon } from "lucide-react";
 
 const app_routes = {
   "": [
     { name: "Dashboard", path: "/dashboard", icon: <Gauge /> },
-    { name: "Compañía", path: "/company", icon: <BuildingIcon /> },
-    { name: "Profile", path: "/profile", icon: <User /> },
+    { name: "Organización", path: "/organization", icon: <BuildingIcon /> },
   ],
-  Clientes: [
+  Finanzas: [
+    { name: "Ingresos / Deudas", path: "/", icon: <BarChart4Icon /> },
+  ],
+  Ventas: [
     { name: "Clientes", path: "/clients", icon: <UserCog /> },
-    { name: "Búscar Cliente", path: "/clients", icon: <UserSearch /> },
-  ],
-  Productos: [
-    { name: "Products", path: "/products", icon: <Package /> },
-  ],
-  Ordenes: [
-    { name: "Orders", path: "/orders", icon: <Receipt /> },
+    { name: "Productos", path: "/products", icon: <Package /> },
+    { name: "Ordenes", path: "/orders", icon: <Receipt /> },
   ],
   "Configuración": [
     { name: "Configuración", path: "/settings", icon: <Settings /> },

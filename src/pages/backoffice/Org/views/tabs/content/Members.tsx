@@ -8,7 +8,7 @@ export const Members = () => {
         <div className="flex items-center gap-2 shadow rounded p-1">
           <Users2Icon className="text-blue-400" />
         </div>
-        <h2 className="text-lg font-semibold">Miembros de la Compañía.</h2>
+        <h2 className="text-lg font-semibold">Miembros de la Organización.</h2>
       </div>
       <div>
         <EmployeesTable />

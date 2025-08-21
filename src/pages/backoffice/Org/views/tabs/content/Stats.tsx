@@ -8,7 +8,7 @@ const Stats = () => {
         <div className="flex items-center gap-2 shadow rounded p-1">
           <BarChart2Icon className="text-blue-400" />
         </div>
-        <h2 className="text-lg font-semibold">Estadísticas de la compañía.</h2>
+        <h2 className="text-lg font-semibold">Estadísticas de la Organización.</h2>
       </div>
       <div>
         <StatsCharts />
