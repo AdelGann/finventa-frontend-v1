@@ -41,7 +41,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
       <div className="px-1">
         <div className={`${IS_MOBILE && "flex justify-between w-full items-center"}`}>
           <div className={`flex items-center gap-2 justify-center pt-2`}>
-            <h3 className="text-2xl font-bold pl-2">Z0</h3>
+            <h3 className="text-2xl font-bold pl-2">Finventa</h3>
             <motion.div
               className="overflow-hidden"
               variants={badgeVariants}

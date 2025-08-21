@@ -19,7 +19,7 @@ const Footer = lazy(() => import("@/components/layout/Footer/Footer"));
  */
 export const Landing = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col gap-10">
       <div className="fixed top-0 left-0 w-full z-30">
         <Navbar routes={landing_routes} />
       </div>

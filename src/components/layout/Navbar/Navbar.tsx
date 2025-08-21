@@ -32,7 +32,7 @@ const Navbar = ({ routes, ...rest }: RoutesElement) => {
         {...(rest as React.HTMLAttributes<HTMLDivElement>)}
       >
         <Link to="/" className="flex items-center gap-2">
-          <h3 className="text-xl font-bold pl-10">Z0</h3>
+          <h3 className="text-lg font-bold pl-10">Finventa</h3>
           <Badge variant="outline">{VERSION}</Badge>
         </Link>
         <NavigationMenu>

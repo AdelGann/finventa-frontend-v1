@@ -22,7 +22,7 @@ export const Hero = () => {
               animate={{ scale: 1 }}
               transition={{ delay: 0.1, duration: 0.3 }}
             >
-              Z0
+              Finventa
             </motion.h1>
             <motion.h3
               className="text-2xl"
