@@ -27,9 +27,11 @@ export const Tabs = ({
   return (
     <>
       <TabsPrimitive {...rest}>
-        <TabsList className={tabListClassName}>
+        <TabsList
+          className={`dark:bg-[#1C1B24] shadow dark:shadow-[#20202a] overflow-x-auto whitespace-nowrap flex w-full justify-start p-1 max-w-full ${tabListClassName ?? ''}`}
+        >
           {tabsTrigger.map((item, key) => {
-            return <TabsTrigger {...item} key={key} />;
+            return <TabsTrigger {...item} className={`flex-shrink-0 px-4 ${item.className ?? ""}`} key={key} />;
           })}
         </TabsList>
         {tabsContent.map((item, key) => {
