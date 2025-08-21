@@ -12,7 +12,7 @@ const Charts = () => {
       <div className="p-2 m-5 bg:white dark:bg-[#262633] border rounded-sm">
         <div className="bg-opacity-50 dark:bg-opacity-50 rounded-lg">
           <div className="p-1">
-            <h3 className="uppercase font-bold">{chartState} financial summary</h3>
+            <h3 className="uppercase font-bold">{chartState === "Monthly" ? "Registro Financiero Mensual" : "Registro Financiero Diario"}</h3>
           </div>
           {chartState === "Monthly" &&
 
@@ -32,8 +32,8 @@ const Charts = () => {
             value={chartState}
             className="w-full"
             options={[
-              { name: "MONTHLY", value: "Monthly" },
-              { name: "DAILY", value: "Daily" },
+              { name: "MENSUAL", value: "Monthly" },
+              { name: "DIARIO", value: "Daily" },
             ]}
           />
         </div>
