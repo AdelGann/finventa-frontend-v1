@@ -59,7 +59,7 @@ const Backoffice = () => {
 
   const GRID_TEMPLATE = IS_MOBILE ? "0 1fr" : "250px 1fr";
   const mocked_profile = {
-    username: "Adel Gannem",
+    username: "Adel G",
     avatar: "",
   }; //TODO: Implementar sistema de carga de imagenes para el usuario
 
