@@ -1,4 +1,12 @@
-import { Gauge, Settings, UserCog, Package, Receipt, BuildingIcon, BarChart4Icon } from "lucide-react";
+import {
+  Gauge,
+  Settings,
+  UserCog,
+  Package,
+  Receipt,
+  BuildingIcon,
+  BarChart4Icon,
+} from "lucide-react";
 
 const app_routes = {
   "": [
@@ -6,14 +14,18 @@ const app_routes = {
     { name: "Organización", path: "/organization", icon: <BuildingIcon /> },
   ],
   Finanzas: [
-    { name: "Ingresos / Deudas", path: "/", icon: <BarChart4Icon /> },
+    {
+      name: "Registro Financiero",
+      path: "/financial-overview",
+      icon: <BarChart4Icon />,
+    },
   ],
   Ventas: [
     { name: "Clientes", path: "/clients", icon: <UserCog /> },
     { name: "Productos", path: "/products", icon: <Package /> },
     { name: "Ordenes", path: "/orders", icon: <Receipt /> },
   ],
-  "Configuración": [
+  Configuración: [
     { name: "Configuración", path: "/settings", icon: <Settings /> },
   ],
 };
