@@ -1,7 +1,9 @@
 import { SEO } from "@/components/custom/SEO";
-import { CompanyInfo } from "./views/tabs/OrgInfo";
 import { BuildingIcon, InfoIcon } from "lucide-react";
+import { Tabs } from "@/components/custom/Tabs";
 import { Separator } from "@/components/ui/separator";
+import { tabs_trigger } from "./data/tabs.trigger";
+import { tabs_content } from "./data/tabs.content";
 
 const Org = () => {
   return (
@@ -19,14 +21,21 @@ const Org = () => {
         </div>
         <div className="flex items-center gap-2">
           <InfoIcon className="text-yellow-400 w-4 h-4" />
-          <p className="text-[12px] text-gray-500">Más funcionalidades están en camino...</p>
+          <p className="text-[12px] text-gray-500">
+            Más funcionalidades están en camino...
+          </p>
         </div>
         <Separator className="my-2 w-full" />
       </div>
       <div>
-        <CompanyInfo />
+        <Tabs
+          defaultValue="stats"
+          className="p-[1px] sm:p-0"
+          tabsTrigger={tabs_trigger}
+          tabsContent={tabs_content}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 export default Org;

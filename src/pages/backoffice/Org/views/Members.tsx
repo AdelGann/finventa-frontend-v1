@@ -1,5 +1,5 @@
 import { Users2Icon } from "lucide-react";
-import { EmployeesTable } from "../../../components/EmployeesTable";
+import { EmployeesTable } from "../components/EmployeesTable";
 
 export const Members = () => {
   return (
@@ -14,6 +14,6 @@ export const Members = () => {
         <EmployeesTable />
       </div>
     </div>
-  )
-}
+  );
+};
 export default Members;

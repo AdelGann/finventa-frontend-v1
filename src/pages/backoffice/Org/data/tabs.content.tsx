@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
 
-const Stats = lazy(() => import("../content/Stats"));
-const Members = lazy(() => import("../content/Members"));
+const Stats = lazy(() => import("../views/Stats"));
+const Members = lazy(() => import("../views/Members"));
 
 export const tabs_content = [
   {
@@ -22,5 +22,5 @@ export const tabs_content = [
         <Members />
       </SuspenseWrapper>
     ),
-  }
+  },
 ];
