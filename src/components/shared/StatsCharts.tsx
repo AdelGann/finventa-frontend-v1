@@ -5,7 +5,7 @@ import { DailyChart, MonthlyChart } from "@/components/custom/Charts";
 
 type ChartState = "Monthly" | "Daily";
 
-const Charts = () => {
+const StatsCharts = () => {
   const [chartState, setChartState] = useState<ChartState>("Monthly");
   return (
     <SuspenseWrapper>
@@ -37,4 +37,4 @@ const Charts = () => {
     </SuspenseWrapper>
   );
 };
-export default Charts;
+export default StatsCharts;

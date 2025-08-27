@@ -3,7 +3,7 @@ import { SEO } from "@/components/custom/SEO";
 
 const Statistics = lazy(() => import("./views/Statistics"));
 const Orders = lazy(() => import("./views/RecentOrders"));
-const Charts = lazy(() => import("./views/Charts"));
+const Charts = lazy(() => import("@/components/shared/StatsCharts"));
 
 const Dashboard = () => {
   return (
