@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Card = lazy(() => import("./Card"));
+const Card = lazy(() => import("@/components/shared/Card"));
 
 const Income = () => {
   return (

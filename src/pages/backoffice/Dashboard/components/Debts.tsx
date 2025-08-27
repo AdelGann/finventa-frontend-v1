@@ -1,10 +1,11 @@
 import { lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Card = lazy(() => import("./Card"));
+const Card = lazy(() => import("@/components/shared/Card"));
 
 export const Debts = () => {
-  const TOOLTIP_DESCRIPTION = "Percentage decrease compared to the previous period";
+  const TOOLTIP_DESCRIPTION =
+    "Percentage decrease compared to the previous period";
   return (
     <AnimatePresence>
       <motion.section

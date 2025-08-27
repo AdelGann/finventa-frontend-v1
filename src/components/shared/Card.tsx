@@ -1,4 +1,4 @@
-import { BarChart2 } from "lucide-react"; // Importación del ícono
+import { BarChart2 } from "lucide-react"; 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Card = ({
