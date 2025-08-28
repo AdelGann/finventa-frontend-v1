@@ -14,7 +14,7 @@ const Org = () => {
       />
       <div className="flex flex-col gap-2 pb-6 px-4">
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2 rounded shadow border p-2">
+          <div className="flex items-center gap-2 p-2">
             <BuildingIcon className="text-amber-300 dark:text-indigo-500 w-8 h-8" />
           </div>
           <h2 className="text-2xl font-semibold">Org Lorem Ipsum</h2>
