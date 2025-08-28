@@ -1,6 +1,7 @@
 import { DateField } from "@/components/ui/Datefield";
 import LineChart, { LineChartDataPoint } from "@/components/custom/LineChart";
 import PieChart from "@/components/custom/PieChart";
+import { TransactionTable } from "../components/FinancialTable";
 
 export const FinancialStats = () => {
   return (
@@ -31,6 +32,9 @@ export const FinancialStats = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <TransactionTable />
       </div>
     </div>
   );
