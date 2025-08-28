@@ -2,16 +2,30 @@ import { DateField } from "@/components/ui/Datefield";
 import LineChart, { LineChartDataPoint } from "@/components/custom/LineChart";
 import PieChart from "@/components/custom/PieChart";
 import { TransactionTable } from "../components/FinancialTable";
+import { Button } from "@/components/ui/button";
+import { PlusIcon } from "lucide-react";
 
 export const FinancialStats = () => {
   return (
     <div>
-      <div className="flex gap-2 px-3 pb-5 pt-2">
-        <DateField label="Desde:" />
-        <DateField label="Hasta:" />
+      <div className="flex justify-between items-center flex-wrap">
+        <div className="flex gap-2 px-3 pb-5 pt-2 flex-wrap">
+          <DateField label="Desde:" />
+          <DateField label="Hasta:" />
+        </div>
+        <div>
+          <Button
+            children={
+              <>
+                <PlusIcon /> Agregar
+              </>
+            }
+            title="Agregar nuevo Registro"
+          />
+        </div>
       </div>
       <div className="flex justify-center w-full">
-        <div className="grid grid-cols-[1.8fr_.3fr] gap-2 w-full mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_.3fr] gap-2 w-full mx-auto">
           <div className="min-w-0">
             <LineChart
               title="Ingresos Semanales"
