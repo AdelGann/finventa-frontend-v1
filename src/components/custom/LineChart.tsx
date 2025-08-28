@@ -10,6 +10,7 @@ export interface LineChartDataPoint {
 export interface LineChartProps {
   title?: string;
   subtitle?: string;
+  className?: string;
   data: LineChartDataPoint[];
   timeGranularity?: "day" | "month" | "year";
 }
@@ -17,6 +18,7 @@ export interface LineChartProps {
 const LineChart: React.FC<LineChartProps> = ({
   title = "Ingresos",
   subtitle = "",
+  className,
   data,
   timeGranularity = "day",
 }) => {
@@ -62,20 +64,12 @@ const LineChart: React.FC<LineChartProps> = ({
       type: "value",
       min: "dataMin",
     },
-    dataZoom: [
-      {
-        type: "inside",
-      },
-      {
-        type: "slider",
-      },
-    ],
     series: [
       {
         type: "line",
         symbolSize: 6,
         data: data.map((point) => [point.timestamp, point.value]),
-        smooth: true,
+        smooth: false,
         lineStyle: {
           width: 2,
         },
@@ -83,7 +77,7 @@ const LineChart: React.FC<LineChartProps> = ({
     ],
   };
 
-  return <ReactECharts option={option} />;
+  return <ReactECharts option={option} className={className}/>;
 };
 
 export default LineChart;

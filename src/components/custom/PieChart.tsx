@@ -10,19 +10,19 @@ export interface PieChartDataItem {
 
 export interface PieChartProps {
   title?: string;
+  className?: string;
   subtitle?: string;
   data: PieChartDataItem[];
   radius?: [string, string];
-  legendPosition?: "left" | "right" | "top" | "bottom";
   showTotalInCenter?: boolean;
 }
 
 const PieChart: React.FC<PieChartProps> = ({
   title = "Título del gráfico",
   subtitle = "",
+  className,
   data,
   radius = ["40%", "70%"],
-  legendPosition = "left",
   showTotalInCenter = true,
 }) => {
   const total = data.reduce((sum, item) => sum + item.value, 0);
@@ -38,10 +38,6 @@ const PieChart: React.FC<PieChartProps> = ({
     },
     tooltip: {
       trigger: "item",
-    },
-    legend: {
-      orient: "vertical",
-      left: legendPosition,
     },
     color: extractedColors.length > 0 ? extractedColors : undefined,
     series: [
@@ -78,7 +74,7 @@ const PieChart: React.FC<PieChartProps> = ({
     ],
   };
 
-  return <ReactECharts option={option} />;
+  return <ReactECharts option={option} className={className} />;
 };
 
 export default PieChart;
