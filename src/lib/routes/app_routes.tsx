@@ -6,6 +6,7 @@ import {
   Receipt,
   BuildingIcon,
   BarChart4Icon,
+  PiggyBankIcon,
 } from "lucide-react";
 
 const app_routes = {
@@ -18,6 +19,11 @@ const app_routes = {
       name: "Registro Financiero",
       path: "/financial-overview",
       icon: <BarChart4Icon />,
+    },
+    {
+      name: "Cuentas",
+      path: "/account",
+      icon: <PiggyBankIcon />,
     },
   ],
   Ventas: [

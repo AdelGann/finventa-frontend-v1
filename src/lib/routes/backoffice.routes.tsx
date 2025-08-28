@@ -24,5 +24,6 @@ const backoffice_routes: RouteProps[] = [
     component: <FinancialOverview />,
     layout: <Content />,
   },
+  { path: "/accounts", component: <></>, layout: <Content /> },
 ];
 export default backoffice_routes;
