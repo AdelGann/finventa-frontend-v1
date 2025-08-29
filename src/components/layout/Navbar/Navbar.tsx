@@ -12,14 +12,20 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useMobile } from "@/hooks/useMobile";
+import { useTheme } from "@/lib/provider/theme-provider";
 import { motion } from "framer-motion";
 import { Menu } from "@/assets/icons/Menu";
 import { Link } from "react-router-dom";
 import { VERSION } from "@/lib/consts/variables";
 
-interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps { }
+import Logo_White from "@/assets/FINVENTA/FINVENTA_WHITE.svg";
+import Logo_Dark from "@/assets/FINVENTA/FINVENTA_DARK.svg";
+
+interface RoutesElement extends React.HTMLProps<HTMLDivElement>, RoutesProps {}
 const Navbar = ({ routes, ...rest }: RoutesElement) => {
   const { screenType } = useMobile();
+  const { theme } = useTheme();
+  const LOGO = theme === "light" ? Logo_White : Logo_Dark;
   return (
     <motion.nav
       initial={{ opacity: 0, y: 0 }}
@@ -32,7 +38,7 @@ const Navbar = ({ routes, ...rest }: RoutesElement) => {
         {...(rest as React.HTMLAttributes<HTMLDivElement>)}
       >
         <Link to="/" className="flex items-center gap-2">
-          <h3 className="text-lg font-bold pl-10">Finventa</h3>
+          <img src={LOGO} className="w-[140px]" />
           <Badge variant="outline">{VERSION}</Badge>
         </Link>
         <NavigationMenu>

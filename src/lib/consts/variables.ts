@@ -1,3 +1,2 @@
 export const MODE = import.meta.env.MODE;
-export const VERSION = "0.0.5.5";
-
+export const VERSION = "0.0.8.5";

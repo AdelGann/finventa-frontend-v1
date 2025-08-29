@@ -1,18 +1,26 @@
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect } from "react";
+import { useMobile } from "@/hooks/useMobile";
+import { useTheme } from "@/lib/provider/theme-provider";
 import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Logo_White from "@/assets/FINVENTA/FINVENTA_WHITE.svg";
+import Logo_Dark from "@/assets/FINVENTA/FINVENTA_DARK.svg";
+//import Logo_Mobile from "@/assets/FINVENTA/FINVENTA_ISOTIPO.svg";
+import { VERSION } from "@/lib/consts/variables";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { ViewTransitionLink } from "@/components/custom/ViewTransitionLink";
 import { badgeVariants, textVariants } from "@/lib/consts/motion_variants";
-import { useMobile } from "@/hooks/useMobile";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { VERSION } from "@/lib/consts/variables";
-import { useEffect } from "react";
 
 const Sidebar = ({ ...props }: SidebarProps) => {
   const { isOpen, toggleSidebar, routes } = props;
   const { IS_MOBILE } = useMobile(); // 3sm is the breakpoint;
+  const { theme } = useTheme();
+
+  const LOGO = theme === "light" ? Logo_White : Logo_Dark;
   const LEFT_SIZE = isOpen ? "215px" : "65px";
+
   // Handler para evitar que cuando se inicie la app el sidebar esté abierto
   useEffect(() => {
     if (IS_MOBILE && isOpen) {
@@ -22,7 +30,7 @@ const Sidebar = ({ ...props }: SidebarProps) => {
   }, [IS_MOBILE]);
 
   return (
-    <section className={`p-4 border bg-[#f7f7f7] dark:bg-[#1b1b25] h-screen`} >
+    <section className={`p-4 border bg-[#f7f7f7] dark:bg-[#1b1b25] h-screen`}>
       {!IS_MOBILE && (
         <div className="absolute z-50">
           <Button
@@ -39,9 +47,11 @@ const Sidebar = ({ ...props }: SidebarProps) => {
         </div>
       )}
       <div className="px-1">
-        <div className={`${IS_MOBILE && "flex justify-between w-full items-center"}`}>
+        <div
+          className={`${IS_MOBILE && "flex justify-between w-full items-center"}`}
+        >
           <div className={`flex items-center gap-2 justify-center pt-2`}>
-            <h3 className="text-2xl font-bold pl-2">Finventa</h3>
+            <img src={LOGO} className="w-[140px]" />
             <motion.div
               className="overflow-hidden"
               variants={badgeVariants}
@@ -53,7 +63,10 @@ const Sidebar = ({ ...props }: SidebarProps) => {
           </div>
           {IS_MOBILE && (
             <>
-              <Button className="bg-[#75768a] dark:text-white rounded-full shadow cursor-pointer" onClick={toggleSidebar}>
+              <Button
+                className="bg-[#75768a] dark:text-white rounded-full shadow cursor-pointer"
+                onClick={toggleSidebar}
+              >
                 <ArrowLeft />
               </Button>
             </>
@@ -72,7 +85,9 @@ const Sidebar = ({ ...props }: SidebarProps) => {
                   transition={{ duration: 0.3 }}
                 >
                   {isOpen && (
-                    <h4 className="text-sm font-semibold text-gray-500 uppercase px-3 py-2">{key}</h4>
+                    <h4 className="text-sm font-semibold text-gray-500 uppercase px-3 py-2">
+                      {key}
+                    </h4>
                   )}
                   {routeGroup.map((item, index) => (
                     <ViewTransitionLink
@@ -80,12 +95,13 @@ const Sidebar = ({ ...props }: SidebarProps) => {
                       key={index}
                       onClick={() => {
                         if (IS_MOBILE) {
-                          toggleSidebar()
+                          toggleSidebar();
                           return;
                         }
                       }}
-                      className={`p-3 hover:bg-input/80 hover:text-black dark:hover:text-white rounded-sm transition-all flex items-center ${isOpen ? "gap-2" : "justify-center"
-                        }`}
+                      className={`p-3 hover:bg-input/80 hover:text-black dark:hover:text-white rounded-sm transition-all flex items-center ${
+                        isOpen ? "gap-2" : "justify-center"
+                      }`}
                     >
                       {item.icon && <>{item.icon}</>}
                       <motion.p

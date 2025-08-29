@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <>
       <SEO
-        title="Z0 - Dashboard"
+        title="Finventa - Dashboard"
         keywords="dashboard, manage system"
         description="Welcome to the control panel. Here you can manage and view all the important information."
       />
