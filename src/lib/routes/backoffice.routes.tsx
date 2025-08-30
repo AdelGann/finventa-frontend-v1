@@ -6,7 +6,7 @@ const Organization = lazy(() => import("@/pages/backoffice/Org/Org"));
 const FinancialOverview = lazy(
   () => import("@/pages/backoffice/FinancialOverview/FinancialOverview"),
 );
-
+const Accounts = lazy(() => import("@/pages/backoffice/Accounts/Accounts"));
 //const Employees = lazy(() => import("@/pages/backoffice/Employees/Employees"));
 
 export interface RouteProps {
@@ -19,11 +19,11 @@ const backoffice_routes: RouteProps[] = [
   { path: "/dashboard", component: <Dashboard /> },
   //{ path: "/employees", component: <Employees />, layout: <Content /> },
   { path: "/organization", component: <Organization />, layout: <Content /> },
+  { path: "/accounts", component: <Accounts />, layout: <Content /> },
   {
     path: "/financial-overview",
     component: <FinancialOverview />,
     layout: <Content />,
   },
-  { path: "/accounts", component: <></>, layout: <Content /> },
 ];
 export default backoffice_routes;

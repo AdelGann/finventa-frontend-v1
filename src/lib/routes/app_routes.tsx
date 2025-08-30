@@ -16,14 +16,14 @@ const app_routes = {
   ],
   Finanzas: [
     {
+      name: "Cuentas",
+      path: "/accounts",
+      icon: <PiggyBankIcon />,
+    },
+    {
       name: "Registro Financiero",
       path: "/financial-overview",
       icon: <BarChart4Icon />,
-    },
-    {
-      name: "Cuentas",
-      path: "/account",
-      icon: <PiggyBankIcon />,
     },
   ],
   Ventas: [
