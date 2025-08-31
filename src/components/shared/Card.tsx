@@ -1,5 +1,10 @@
-import { BarChart2 } from "lucide-react"; 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { BarChart2 } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 const Card = ({
   title,
@@ -7,14 +12,26 @@ const Card = ({
   progress,
   color = "text-green-500",
   description = "Percentage increase compared to the previous period",
+  onClick,
+  isActive,
+  className,
 }: {
   title: string;
   amount: number;
-  progress: number;
+  progress?: number;
   color?: string;
   description?: string;
+  onClick?: (...args: unknown[]) => void;
+  isActive?: boolean;
+  className?: string;
 }) => (
-  <div className="p-2 max-w-[700px] bg-white dark:bg-[#262633] border rounded-sm">
+  <div
+    onClick={onClick}
+    className={cn(
+      `p-2 max-w-[700px] dark:bg-[#262633] border rounded-sm ${onClick && "cursor-pointer hover:bg-accent dark:hover:bg-accent/30 transition-all"} ${isActive && "bg-input/20 dark:bg-input/50"}`,
+      className,
+    )}
+  >
     <div className="p-2 rounded-sm">
       <label className="text-sm font-semibold text-gray-500 dark:text-white uppercase block mb-2">
         {title}
@@ -25,7 +42,9 @@ const Card = ({
         <Tooltip>
           <TooltipTrigger>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-400 ">{progress}%</span>
+              {progress && (
+                <span className="text-sm text-gray-400 ">{progress}%</span>
+              )}
               <BarChart2 className="w-4 h-4 text-gray-400" /> {/* Icon added */}
             </div>
           </TooltipTrigger>

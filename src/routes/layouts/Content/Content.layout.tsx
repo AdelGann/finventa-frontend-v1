@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom"
-import { AnimatePresence, motion } from "framer-motion"
+import { Outlet } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Content = () => {
   return (
@@ -20,6 +20,5 @@ export const Content = () => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
