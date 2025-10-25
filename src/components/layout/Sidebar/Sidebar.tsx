@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useMobile } from "@/hooks/useMobile";
+import { useMobile } from "@/lib/hooks/useMobile";
 import { useTheme } from "@/lib/provider/theme-provider";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import app_routes from "@/lib/routes/app_routes";
 
 import { useSidebarStore } from "@/store/SidebarState/SidebarState";
-import { useMobile } from "@/hooks/useMobile";
+import { useMobile } from "@/lib/hooks/useMobile";
 import { SuspenseWrapper } from "@/components/custom/Suspense-wrapper";
 
 const Header = lazy(() => import("@/components/layout/Header/Header"));
@@ -41,13 +41,13 @@ const Sidebar = lazy(() => import("@/components/layout/Sidebar/Sidebar"));
  * - Dark mode styles are applied using `dark:` prefixed classes.
  */
 const Backoffice = () => {
-  const { IS_MOBILE
-  } = useMobile(); // 3sm is the breakpoint;
+  const { IS_MOBILE } = useMobile(); // 3sm is the breakpoint;
   const sidebarState = useSidebarStore((state) => state);
 
   // VARIABLES
-  const MOBILE_STYLE = `min-w-screen relative w-full z-20 ${IS_MOBILE && sidebarState.isOpen ? "visible" : "hidden"
-    }`;
+  const MOBILE_STYLE = `min-w-screen relative w-full z-20 ${
+    IS_MOBILE && sidebarState.isOpen ? "visible" : "hidden"
+  }`;
 
   const SIDEBAR_WIDTH = sidebarState.isOpen ? "250px" : "100px";
 
@@ -73,8 +73,16 @@ const Backoffice = () => {
       >
         <motion.header
           className="area-header "
-          initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
-          animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
+          initial={{
+            marginLeft: IS_MOBILE
+              ? MOBILE_SIDEBAR_START_MARGIN
+              : SIDEBAR_START_MARGIN,
+          }}
+          animate={{
+            marginLeft: IS_MOBILE
+              ? MOBILE_SIDEBAR_END_MARGIN
+              : SIDEBAR_END_MARGIN,
+          }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <SuspenseWrapper>
@@ -85,14 +93,17 @@ const Backoffice = () => {
         <AnimatePresence initial={false} mode="sync">
           <motion.aside
             key="sidebar"
-            className={`area-aside ${IS_MOBILE && MOBILE_STYLE
-              }`}
+            className={`area-aside ${IS_MOBILE && MOBILE_STYLE}`}
             initial={{
               width: IS_MOBILE ? "100%" : "100px", // Sidebar cerrado tiene ancho mínimo al iniciar
               opacity: IS_MOBILE ? 0 : 1, // En móviles inicia invisible
             }}
             animate={{
-              width: IS_MOBILE ? "100%" : sidebarState.isOpen ? SIDEBAR_WIDTH : "100px",
+              width: IS_MOBILE
+                ? "100%"
+                : sidebarState.isOpen
+                  ? SIDEBAR_WIDTH
+                  : "100px",
               opacity: IS_MOBILE ? (sidebarState.isOpen ? 1 : 0) : 1, // Opacidad animada en móviles
             }}
             exit={{
@@ -113,11 +124,23 @@ const Backoffice = () => {
 
         <motion.main
           className="bg-white dark:bg-[#1a1a23] area-main p-4 overflow-auto pt-5"
-          initial={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_START_MARGIN : SIDEBAR_START_MARGIN }}
-          animate={{ marginLeft: IS_MOBILE ? MOBILE_SIDEBAR_END_MARGIN : SIDEBAR_END_MARGIN }}
+          initial={{
+            marginLeft: IS_MOBILE
+              ? MOBILE_SIDEBAR_START_MARGIN
+              : SIDEBAR_START_MARGIN,
+          }}
+          animate={{
+            marginLeft: IS_MOBILE
+              ? MOBILE_SIDEBAR_END_MARGIN
+              : SIDEBAR_END_MARGIN,
+          }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div id='content' style={{ viewTransitionName: "content" }} className="min-h-full">
+          <div
+            id="content"
+            style={{ viewTransitionName: "content" }}
+            className="min-h-full"
+          >
             <Outlet />
           </div>
         </motion.main>

@@ -11,7 +11,7 @@ import {
   // NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { useMobile } from "@/hooks/useMobile";
+import { useMobile } from "@/lib/hooks/useMobile";
 import { useTheme } from "@/lib/provider/theme-provider";
 import { motion } from "framer-motion";
 import { Menu } from "@/assets/icons/Menu";
