@@ -38,7 +38,7 @@ const Card = ({
       </label>
       <hr className="mb-4" />
       <div className="flex justify-between items-center mb-4 gap-1 flex-wrap">
-        <label className={`font-bold text-2xl ${color}`}>${amount}</label>
+        <label className={`font-bold text-2xl ${color}`}>${Number(amount.toString().split("-").join(""))}</label>
         <Tooltip>
           <TooltipTrigger>
             <div className="flex items-center gap-2">
