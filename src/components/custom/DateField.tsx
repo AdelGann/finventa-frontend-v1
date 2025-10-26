@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 interface DatePickerProps {
   label?: string;
@@ -20,12 +21,12 @@ interface DatePickerProps {
 }
 
 export const DateField: React.FC<DatePickerProps> = ({
-  label = "Select date",
+  label = "Elegir Fecha",
   value,
   onChange,
   id = "date",
-  className = "",
-  buttonClassName = "w-48 justify-between font-normal",
+  className = "w-full",
+  buttonClassName = "w-full justify-between font-normal",
 }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -35,14 +36,16 @@ export const DateField: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <div className={`flex flex-col gap-3 ${className}`}>
-      <Label htmlFor={id} className="px-1">
-        {label}
-      </Label>
+    <div className={cn(`flex flex-col gap-3`, className)}>
+      {label && (
+        <Label htmlFor={id} className="px-1">
+          {label}
+        </Label>
+      )}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button variant="outline" id={id} className={buttonClassName}>
-            {value ? value.toLocaleDateString() : "Select date"}
+            {value ? value.toLocaleDateString() : "Escoger Fecha"}
             <ChevronDownIcon />
           </Button>
         </PopoverTrigger>

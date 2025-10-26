@@ -10,6 +10,7 @@ const Card = ({
   title,
   amount,
   progress,
+  symbol = "$",
   color = "text-green-500",
   description = "Percentage increase compared to the previous period",
   onClick,
@@ -18,6 +19,7 @@ const Card = ({
 }: {
   title: string;
   amount: number;
+  symbol?: string;
   progress?: number;
   color?: string;
   description?: string;
@@ -38,7 +40,10 @@ const Card = ({
       </label>
       <hr className="mb-4" />
       <div className="flex justify-between items-center mb-4 gap-1 flex-wrap">
-        <label className={`font-bold text-2xl ${color}`}>${Number(amount.toString().split("-").join(""))}</label>
+        <label className={`font-bold text-2xl ${color}`}>
+          {symbol}
+          {Number(amount.toString().split("-").join(""))}
+        </label>
         <Tooltip>
           <TooltipTrigger>
             <div className="flex items-center gap-2">
