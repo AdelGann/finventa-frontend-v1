@@ -11,6 +11,7 @@ const Clients = lazy(() => import("@/pages/backoffice/Clients/Clients"));
 const ClientDetail = lazy(
   () => import("@/pages/backoffice/Clients/views/ClientDetail"),
 );
+const Products = lazy(() => import("@/pages/backoffice/Products/Products"));
 //const Employees = lazy(() => import("@/pages/backoffice/Employees/Employees"));
 
 export interface RouteProps {
@@ -32,6 +33,11 @@ const backoffice_routes: RouteProps[] = [
   {
     path: "/financial-overview",
     component: <FinancialOverview />,
+    layout: <Content />,
+  },
+  {
+    path: "/products",
+    component: <Products />,
     layout: <Content />,
   },
 ];
