@@ -116,7 +116,9 @@ const Navbar = ({ routes, ...rest }: RoutesElement) => {
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     href="/register"
-                    className={`${navigationMenuTriggerStyle()} hover:text-white cursor-pointer rounded transition-all duration-300 px-4 py-2 bg-[#333344] text-white hover:bg-[#4a4a5a] dark:bg-[#2f2f3f] dark:text-[#F3F4F6] dark:hover:bg-[#3a3a4a] text-sm`}
+                    className={`${navigationMenuTriggerStyle()} cursor-pointer rounded transition-all duration-300 px-4 py-2 text-sm
+                      bg-[#00b77e] !text-white hover:bg-[#4fd6b0] !hover:text-white
+                      dark:bg-[#00b77e]/80 dark:text-white dark:hover:bg-[#4fd6b0]/80`}
                   >
                     Sign up!
                   </NavigationMenuLink>

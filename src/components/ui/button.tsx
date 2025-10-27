@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#333344] text-white shadow-xs hover:bg-[#2a2a3a]",
+        default: "bg-[#00b77e] text-white shadow-xs hover:bg-[#00996b]",
         destructive:
           "bg-[#EF4444] text-white shadow-xs hover:bg-[#DC2626] focus-visible:ring-[#DC2626]/20 dark:focus-visible:ring-[#DC2626]/40",
         outline:
-          "border border-[#333344] bg-transparent dark:text-[#FFF] shadow-xs hover:bg-[#F3F4F6] dark:hover:text-black",
-        secondary: "bg-[#F3F4F6] text-[#333344] shadow-xs hover:bg-[#E5E7EB]",
-        ghost: "text-[#333344] hover:bg-[#F3F4F6]",
-        link: "text-[#333344] underline-offset-4 hover:underline",
+          "border border-[#00b77e] bg-transparent text-[#00b77e] shadow-xs hover:bg-[#e6f7f2] hover:text-[#00996b]",
+        secondary: "bg-[#e6f7f2] text-[#00b77e] shadow-xs hover:bg-[#d0eee4]",
+        ghost: "text-[#00b77e] hover:bg-[#e6f7f2]",
+        link: "text-[#00b77e] underline-offset-4 hover:underline",
         header:
-          "shadow-xs bg-input/0 text-black dark:text-white dark:bg-input/5 dark:hover:bg-input/30 hover:bg-input/30", // intacto
+          "shadow-xs bg-[#e6f7f2] text-[#00b77e] hover:bg-[#d0eee4] dark:bg-input/10 dark:text-[#00b77e] dark:hover:bg-input/30",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
