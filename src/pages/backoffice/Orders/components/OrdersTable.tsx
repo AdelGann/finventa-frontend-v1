@@ -8,6 +8,7 @@ export interface Orders {
   ci: string;
   state: "Pagado" | "Incompleto" | "Pendiente" | string;
   total_quantity: number;
+  total_amount: string;
   created_at: string;
   updated_at: string;
 }
@@ -39,6 +40,7 @@ const columns = [
   { accessorKey: "ci", header: "C.I. del Comprador" },
   { accessorKey: "full_name", header: "Nombre del Comprador" },
   { accessorKey: "total_quantity", header: "Total de Artículos" },
+  { accessorKey: "total_amount", header: "Monto Total" },
   { accessorKey: "created_at", header: "Fecha de Creación" },
   { accessorKey: "updated_at", header: "Fecha de Modificación" },
   { accessorKey: "state", header: "Estado" },
@@ -51,6 +53,7 @@ const data: Orders[] = [
     ci: "V-12345678",
     state: "Pagado",
     total_quantity: 12,
+    total_amount: "$1,250.00",
     created_at: "2025-10-01",
     updated_at: "2025-10-10",
   },
@@ -60,6 +63,7 @@ const data: Orders[] = [
     ci: "V-87654321",
     state: "Pendiente",
     total_quantity: 7,
+    total_amount: "$980.00",
     created_at: "2025-09-15",
     updated_at: "2025-10-05",
   },
@@ -69,6 +73,7 @@ const data: Orders[] = [
     ci: "V-11223344",
     state: "Incompleto",
     total_quantity: 5,
+    total_amount: "$2,340.00",
     created_at: "2025-10-20",
     updated_at: "2025-10-25",
   },
