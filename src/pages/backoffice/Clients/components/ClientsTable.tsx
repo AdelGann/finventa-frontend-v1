@@ -13,7 +13,6 @@ export interface Client {
   money_spent: string;
   total_orders: number;
   last_purchase: string;
-  category: "VIP" | "Premium" | "Regular" | "Nuevo" | string;
   state: "Activo" | "Inactivo" | "Suspendido" | string;
 }
 
@@ -52,7 +51,6 @@ const columns = [
   { accessorKey: "money_spent", header: "Dinero Gastado" },
   { accessorKey: "total_orders", header: "Órdenes" },
   { accessorKey: "last_purchase", header: "Última Compra" },
-  { accessorKey: "category", header: "Categoría" },
   { accessorKey: "state", header: "Estado" },
 ];
 
@@ -67,7 +65,6 @@ const data: Client[] = [
     phone: "+58 412-1234567",
     last_purchase: "2025-10-10",
     total_orders: 5,
-    category: "Premium",
   },
   {
     id: "2",
@@ -79,7 +76,6 @@ const data: Client[] = [
     phone: "+58 414-7654321",
     last_purchase: "2025-08-22",
     total_orders: 3,
-    category: "Regular",
   },
   {
     id: "3",
@@ -91,6 +87,5 @@ const data: Client[] = [
     phone: "+58 424-3344556",
     last_purchase: "2025-10-20",
     total_orders: 8,
-    category: "VIP",
   },
 ];
