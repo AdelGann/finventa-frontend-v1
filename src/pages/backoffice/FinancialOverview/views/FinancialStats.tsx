@@ -10,8 +10,8 @@ export const FinancialStats = () => {
     <div>
       <div className="flex justify-between items-center flex-wrap">
         <div className="flex gap-2 px-3 pb-5 pt-2 flex-wrap">
-          <DateField label="Desde:" />
-          <DateField label="Hasta:" />
+          <DateField label="Desde:" className="w-[200px]" />
+          <DateField label="Hasta:" className="w-[200px]" />
         </div>
         <div>
           <Button
