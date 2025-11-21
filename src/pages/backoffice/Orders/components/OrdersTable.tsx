@@ -1,6 +1,8 @@
 import { DataTable } from "@/components/custom/DataTable";
 import { InputField } from "@/components/custom/InputField";
 import { Button } from "@/components/ui/button";
+import { CreateOrder } from "../views/CreateOrder";
+import { useViewTransitionNavigate } from "@/lib/hooks/useViewTransitionNavigate";
 
 export interface Orders {
   id: string;
@@ -14,7 +16,12 @@ export interface Orders {
 }
 
 export const OrdersTable = () => {
+  const navigate = useViewTransitionNavigate();
   const actions = [
+    {
+      label: "Ver",
+      onClick: (row: Orders) => navigate(`/orders/order-detail/${row.id}`),
+    },
     { label: "Editar", onClick: (row: Orders) => console.log(row) },
     { label: "Eliminar", onClick: (row: Orders) => console.log(row) },
   ];
@@ -28,7 +35,7 @@ export const OrdersTable = () => {
           className="w-[250px]"
         />
         <Button>Buscar</Button>
-        <Button variant={"outline"}>+ Nueva Orden</Button>
+        <CreateOrder />
       </div>
       <DataTable columns={columns} data={data} customActions={actions} />
     </div>

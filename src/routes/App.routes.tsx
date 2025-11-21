@@ -64,22 +64,52 @@ export const AppRoutes = () => {
           }
         >
           {backoffice_routes.map((item: RouteProps, key) => {
-            if (item.layout) return (
-              <Route
-                key={key}
-                element={item.layout}
-                path={item.path}
-              >
-                <Route index element={item.component} />
-              </Route>
-            )
-            else return (
-              <Route
-                key={key}
-                element={item.component}
-                path={item.path}
-              />
-            )
+            const renderRoute = (route: RouteProps, index: number) => {
+              if (route.children) {
+                return (
+                  <Route
+                    key={index}
+                    element={route.layout || route.component}
+                    path={route.path}
+                  >
+                    {route.layout ? (
+                      <Route element={route.component}>
+                        {route.children.map((child, childIndex) =>
+                          renderRoute(child, childIndex),
+                        )}
+                      </Route>
+                    ) : (
+                      route.children.map((child, childIndex) =>
+                        renderRoute(child, childIndex),
+                      )
+                    )}
+                  </Route>
+                );
+              }
+
+              if (route.layout) {
+                return (
+                  <Route
+                    key={index}
+                    element={route.layout}
+                    path={route.path}
+                  >
+                    <Route index element={route.component} />
+                  </Route>
+                );
+              }
+
+              return (
+                <Route
+                  key={index}
+                  element={route.component}
+                  path={route.path}
+                  index={route.path === ""}
+                />
+              );
+            };
+
+            return renderRoute(item, key);
           })}
         </Route>
       </Routes>

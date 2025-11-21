@@ -13,6 +13,7 @@ import {
 import { useMobile } from "@/lib/hooks/useMobile";
 import { useSidebarStore } from "@/store/SidebarState/SidebarState";
 import { Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({
   profile,
@@ -21,6 +22,7 @@ const Header = ({
 }) => {
   const { IS_MOBILE } = useMobile(); // 3sm is the breakpoint;
   const sidebarState = useSidebarStore((state) => state);
+  const navigate = useNavigate();
 
   // VARIABLES
   const DESKTOP_STYLE = "flex justify-end items-center gap-2";
@@ -81,7 +83,7 @@ const Header = ({
             <DropdownMenuContent>
               <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer">
+              <DropdownMenuItem className="cursor-pointer" onClick={() => navigate("/profile")}>
                 <UserRound /> Perfil
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer">

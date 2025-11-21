@@ -13,11 +13,28 @@ const ClientDetail = lazy(
 );
 const Products = lazy(() => import("@/pages/backoffice/Products/Products"));
 const Orders = lazy(() => import("@/pages/backoffice/Orders/Orders"));
+const OrderDetail = lazy(
+  () => import("@/pages/backoffice/Orders/views/OrderDetail"),
+);
+const SettingsLayout = lazy(
+  () => import("@/pages/backoffice/Settings/layout/SettingsLayout"),
+);
+const GeneralSettings = lazy(
+  () => import("@/pages/backoffice/Settings/views/General"),
+);
+const UsersSettings = lazy(
+  () => import("@/pages/backoffice/Settings/views/Users"),
+);
+const NotificationsSettings = lazy(
+  () => import("@/pages/backoffice/Settings/views/Notifications"),
+);
+const Profile = lazy(() => import("@/pages/backoffice/Profile/Profile"));
 
 export interface RouteProps {
   path: string;
   component: React.ReactElement;
   layout?: React.ReactElement;
+  children?: RouteProps[];
 }
 
 const backoffice_routes: RouteProps[] = [
@@ -43,6 +60,35 @@ const backoffice_routes: RouteProps[] = [
   {
     path: "/orders",
     component: <Orders />,
+    layout: <Content />,
+  },
+  {
+    path: "/orders/order-detail/:id",
+    component: <OrderDetail />,
+    layout: <Content />,
+  },
+  {
+    path: "/settings",
+    component: <SettingsLayout />,
+    layout: <Content />,
+    children: [
+      {
+        path: "",
+        component: <GeneralSettings />,
+      },
+      {
+        path: "users",
+        component: <UsersSettings />,
+      },
+      {
+        path: "notifications",
+        component: <NotificationsSettings />,
+      },
+    ],
+  },
+  {
+    path: "/profile",
+    component: <Profile />,
     layout: <Content />,
   },
 ];
