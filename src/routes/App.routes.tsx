@@ -11,6 +11,7 @@ const Home = lazy(() => import("@/pages/home/Home"));
 const Login = lazy(() => import("@/pages/Login/Login"));
 const Register = lazy(() => import("@/pages/Register/Register"));
 const NotFound = lazy(() => import("@/pages/404/404"));
+const Unauthorized = lazy(() => import("@/pages/Unauthorized/Unauthorized"));
 
 export const AppRoutes = () => {
   return (
@@ -53,6 +54,14 @@ export const AppRoutes = () => {
           element={
             <SuspenseWrapper>
               <Register />
+            </SuspenseWrapper>
+          }
+        />
+        <Route
+          path="/unauthorized"
+          element={
+            <SuspenseWrapper>
+              <Unauthorized />
             </SuspenseWrapper>
           }
         />

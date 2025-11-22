@@ -2,9 +2,26 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 html {
 	scroll-behavior: smooth;
+	height: 100%;
+	width: 100%;
 }
+
+body {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	overflow: hidden;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 :root {
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -116,6 +133,7 @@ html {
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}
@@ -128,16 +146,20 @@ html {
 			"aside main main"
 			"aside main main";
 	}
+
 	.area-header {
 		grid-area: header;
 	}
+
 	.area-aside {
 		grid-area: aside;
 	}
+
 	.area-main {
 		grid-area: main;
 	}
 }
+
 /*
 	Layer for charts
 	

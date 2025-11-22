@@ -28,8 +28,8 @@ export const ProductsColumn = () => {
   };
 
   return (
-    <div className="px-3 pt-5 py-1">
-      <div className="grid grid-cols-1 w-[230px] xs:w-[280px] md:w-auto md:grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-4 mb-6 max-w-screen-xl mx-auto">
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-3 pb-6">
         {productsData.map((product) => (
           <ProductCard
             key={product.id}
@@ -48,13 +48,15 @@ export const ProductsColumn = () => {
           />
         ))}
       </div>
-      <PaginationControls
-        currentPage={2}
-        totalPages={10}
-        onPageChange={(page) => console.log("Ir a página:", page)}
-      />
+      <div className="px-3 pb-3">
+        <PaginationControls
+          currentPage={2}
+          totalPages={10}
+          onPageChange={(page) => console.log("Ir a página:", page)}
+        />
+      </div>
       <ProductSheet data={product} setState={setSheetOpen} state={sheetOpen} />
-    </div>
+    </>
   );
 };
 
@@ -110,6 +112,6 @@ const productsData: ProductData[] = [
     price: 28,
     quantity: 1,
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBl7pSKI-7W3wWFxz5Jdp1JV8o76stSFvuGw&s", // sin imagen
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBl7pSKI-7W3wWFxz5Jdp1JV8o76stSFvuGw&s",
   },
 ];

@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import app_routes from "@/lib/routes/app_routes";
 
@@ -45,16 +44,13 @@ const Backoffice = () => {
   const sidebarState = useSidebarStore((state) => state);
 
   // VARIABLES
-  const MOBILE_STYLE = `min-w-screen relative w-full z-20 ${
-    IS_MOBILE && sidebarState.isOpen ? "visible" : "hidden"
-  }`;
+  const MOBILE_STYLE = `min-w-screen relative w-full z-20 ${IS_MOBILE && sidebarState.isOpen ? "visible" : "hidden"
+    }`;
 
   const SIDEBAR_WIDTH = sidebarState.isOpen ? "250px" : "100px";
 
-  const SIDEBAR_START_MARGIN = sidebarState.isOpen ? "0px" : "-170px";
   const SIDEBAR_END_MARGIN = sidebarState.isOpen ? "0px" : "-150px";
 
-  const MOBILE_SIDEBAR_START_MARGIN = "0px";
   const MOBILE_SIDEBAR_END_MARGIN = "0px";
 
   const GRID_TEMPLATE = IS_MOBILE ? "0 1fr" : "250px 1fr";
@@ -64,88 +60,61 @@ const Backoffice = () => {
   }; //TODO: Implementar sistema de carga de imagenes para el usuario
 
   return (
-    <AnimatePresence initial={false} mode="wait">
-      <section
+    <section
+      style={{
+        gridTemplateColumns: GRID_TEMPLATE,
+      }}
+      className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen max-h-screen overflow-hidden"
+    >
+      <header
+        className="area-header transition-all duration-300 ease-in-out"
         style={{
-          gridTemplateColumns: GRID_TEMPLATE,
+          marginLeft: IS_MOBILE
+            ? MOBILE_SIDEBAR_END_MARGIN
+            : SIDEBAR_END_MARGIN,
         }}
-        className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen overflow-hidden"
       >
-        <motion.header
-          className="area-header "
-          initial={{
-            marginLeft: IS_MOBILE
-              ? MOBILE_SIDEBAR_START_MARGIN
-              : SIDEBAR_START_MARGIN,
-          }}
-          animate={{
-            marginLeft: IS_MOBILE
-              ? MOBILE_SIDEBAR_END_MARGIN
-              : SIDEBAR_END_MARGIN,
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <SuspenseWrapper>
-            <Header profile={mocked_profile} />
-          </SuspenseWrapper>
-        </motion.header>
+        <SuspenseWrapper>
+          <Header profile={mocked_profile} />
+        </SuspenseWrapper>
+      </header>
 
-        <AnimatePresence initial={false} mode="sync">
-          <motion.aside
-            key="sidebar"
-            className={`area-aside ${IS_MOBILE && MOBILE_STYLE}`}
-            initial={{
-              width: IS_MOBILE ? "100%" : "100px", // Sidebar cerrado tiene ancho mínimo al iniciar
-              opacity: IS_MOBILE ? 0 : 1, // En móviles inicia invisible
-            }}
-            animate={{
-              width: IS_MOBILE
-                ? "100%"
-                : sidebarState.isOpen
-                  ? SIDEBAR_WIDTH
-                  : "100px",
-              opacity: IS_MOBILE ? (sidebarState.isOpen ? 1 : 0) : 1, // Opacidad animada en móviles
-            }}
-            exit={{
-              width: IS_MOBILE ? "0px" : "100px", // Reduce el ancho al desmontarse
-              opacity: IS_MOBILE ? 0 : 1, // Mantiene opacidad en escritorio
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <SuspenseWrapper>
-              <Sidebar
-                isOpen={sidebarState.isOpen}
-                toggleSidebar={sidebarState.toggleSidebar}
-                routes={app_routes}
-              />
-            </SuspenseWrapper>
-          </motion.aside>
-        </AnimatePresence>
+      <aside
+        className={`area-aside transition-all duration-300 ease-in-out ${IS_MOBILE && MOBILE_STYLE}`}
+        style={{
+          width: IS_MOBILE
+            ? "100%"
+            : sidebarState.isOpen
+              ? SIDEBAR_WIDTH
+              : "100px",
+          opacity: IS_MOBILE ? (sidebarState.isOpen ? 1 : 0) : 1,
+        }}
+      >
+        <SuspenseWrapper>
+          <Sidebar
+            isOpen={sidebarState.isOpen}
+            toggleSidebar={sidebarState.toggleSidebar}
+            routes={app_routes}
+          />
+        </SuspenseWrapper>
+      </aside>
 
-        <motion.main
-          className="bg-white dark:bg-[#1a1a23] area-main p-4 overflow-auto pt-5"
-          initial={{
-            marginLeft: IS_MOBILE
-              ? MOBILE_SIDEBAR_START_MARGIN
-              : SIDEBAR_START_MARGIN,
-          }}
-          animate={{
-            marginLeft: IS_MOBILE
-              ? MOBILE_SIDEBAR_END_MARGIN
-              : SIDEBAR_END_MARGIN,
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+      <main
+        className="bg-white dark:bg-[#1a1a23] area-main p-4 overflow-y-auto overflow-x-hidden pt-5 transition-all duration-300 ease-in-out max-h-full"
+        style={{
+          marginLeft: IS_MOBILE
+            ? MOBILE_SIDEBAR_END_MARGIN
+            : SIDEBAR_END_MARGIN,
+        }}
+      >
+        <div
+          id="content"
+          style={{ viewTransitionName: "content" }}
         >
-          <div
-            id="content"
-            style={{ viewTransitionName: "content" }}
-            className="min-h-full"
-          >
-            <Outlet />
-          </div>
-        </motion.main>
-      </section>
-    </AnimatePresence>
+          <Outlet />
+        </div>
+      </main>
+    </section>
   );
 };
 
