@@ -110,6 +110,7 @@ const Backoffice = () => {
         <div
           id="content"
           style={{ viewTransitionName: "content" }}
+          className="pb-5"
         >
           <Outlet />
         </div>
