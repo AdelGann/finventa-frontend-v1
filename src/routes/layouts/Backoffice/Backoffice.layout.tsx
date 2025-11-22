@@ -64,7 +64,7 @@ const Backoffice = () => {
       style={{
         gridTemplateColumns: GRID_TEMPLATE,
       }}
-      className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen max-h-screen overflow-hidden"
+      className="grid grid-areas-backoffice grid-rows-[auto_1fr] h-screen max-h-screen w-full min-w-screen overflow-hidden fixed"
     >
       <header
         className="area-header transition-all duration-300 ease-in-out"
